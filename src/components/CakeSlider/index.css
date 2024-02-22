@@ -1,0 +1,24 @@
+.slider-container {
+  width: 100%;
+}
+.custom-slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.custom-prev-arrow,
+.custom-next-arrow {
+  font-family: 'Poiret One', 'sans serif';
+  background-color: transparent;
+  border: none;
+  font-size: 60px;
+  color: #e5bf4a;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.custom-prev-arrow:hover,
+.custom-next-arrow:hover {
+  opacity: 1;
+}

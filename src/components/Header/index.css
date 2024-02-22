@@ -1,0 +1,14 @@
+.nav-bar-icons {
+  color: #fff;
+}
+.nav-bar-icons:hover {
+  color: #e5bf4a;
+  transition: 0.4s ease-out;
+  transform: rotateY(180deg);
+}
+.popup-container {
+  text-align: end;
+}
+.link-style {
+  text-decoration: none;
+}
