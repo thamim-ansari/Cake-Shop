@@ -10,6 +10,7 @@ import {
   CakeItemDetailsAndOrderContainer,
   CakePriceAndDescription,
   CakeDescription,
+  CakeDescriptionReadMoreBtn,
   CakePrice,
   CakeOrderContainer,
   CakeQtyAddAndMinusContainer,
@@ -21,26 +22,35 @@ import {
 const CakeList = props => {
   const {cakeDetails, onClickAddProduct, onIncrementQty, onDecrementQty} = props
   const [isBtnEnabled, setBtnAction] = useState(false)
-  const {
-    id,
-    name,
-    description,
-    imageUrl,
-    price,
-    qty,
-    type,
-    weight,
-  } = cakeDetails
+  const [isReadMoreEnabled, setReadMore] = useState(false)
+  const {id, name, description, imageUrl, price, qty, weight} = cakeDetails
+
   const onClickAddProductBtn = () => {
     onClickAddProduct(id)
     setBtnAction(true)
   }
+
   const onClickIncrementBtn = () => {
     onIncrementQty(id)
   }
+
   const onClickDecrementBtn = () => {
     onDecrementQty(id)
   }
+
+  const onClickReadMore = () => setReadMore(prev => !prev)
+
+  const descriptionLength = description.length
+
+  const readMoreReadLess = isReadMoreEnabled
+    ? description
+    : description.slice(0, 100)
+
+  const limitedDescription =
+    descriptionLength > 100 ? readMoreReadLess : description
+
+  const readMoreBtnValue = isReadMoreEnabled ? 'read less...' : ' read more...'
+
   return (
     <CakeListItem>
       <CakeImage src={imageUrl} alt={`${name}-image`} />
@@ -49,7 +59,15 @@ const CakeList = props => {
         <CakeItemDetailsAndOrderContainer>
           <CakePriceAndDescription>
             <CakeWeight>{`${weight}g (each)`}</CakeWeight>
-            <CakeDescription>{description}</CakeDescription>
+            <CakeDescription>
+              {limitedDescription}
+              <CakeDescriptionReadMoreBtn
+                visibility={descriptionLength > 100 ? 'inline-block' : 'none'}
+                onClick={onClickReadMore}
+              >
+                {readMoreBtnValue}
+              </CakeDescriptionReadMoreBtn>
+            </CakeDescription>
             <CakePrice>{`₹ ${price * qty}`}</CakePrice>
           </CakePriceAndDescription>
           <CakeOrderContainer>

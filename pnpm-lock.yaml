@@ -16,6 +16,7 @@ specifiers:
   react: 17.0.1
   react-dom: 17.0.1
   react-icons: 4.3.1
+  react-loader-spinner: 6.1.6
   react-player: 2.14.1
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
@@ -32,6 +33,7 @@ dependencies:
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.3.1_react@17.0.1
+  react-loader-spinner: 6.1.6_react-dom@17.0.1+react@17.0.1
   react-player: 2.14.1_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
   react-slick: 0.30.2_react-dom@17.0.1+react@17.0.1
@@ -10705,6 +10707,23 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+
+  /react-is/18.2.0:
+    resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
+  /react-loader-spinner/6.1.6_react-dom@17.0.1+react@17.0.1:
+    resolution: {integrity: sha512-x5h1Jcit7Qn03MuKlrWcMG9o12cp9SNDVHVJTNRi9TgtGPKcjKiXkou4NRfLAtXaFB3+Z8yZsVzONmPzhv2ErA==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+      react-is: 18.2.0
+      styled-components: 6.1.8_react-dom@17.0.1+react@17.0.1
+    dev: false
 
   /react-player/2.14.1_react@17.0.1:
     resolution: {integrity: sha512-jILj7F9o+6NHzrJ1GqZIxfJgskvGmKeJ05FNhPvgiCpvMZFmFneKEkukywHcULDO2lqITm+zcEkLSq42mX0FbA==}

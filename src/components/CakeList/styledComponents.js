@@ -54,6 +54,17 @@ export const CakeDescription = styled.p`
   font-weight: 400;
   line-height: 1.5;
 `
+export const CakeDescriptionReadMoreBtn = styled.button`
+  display: ${props => props.visibility};
+  color: #e5bf4a;
+  background-color: transparent;
+  font-family: 'Jost', 'sans serif';
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`
 export const CakePrice = styled.p`
   color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
@@ -99,4 +110,9 @@ export const CakeAddToCartBtn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #e5bf4a;
+    color: #e5bf4a;
+  }
 `
