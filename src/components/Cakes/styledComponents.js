@@ -71,6 +71,7 @@ export const FilterBtn = styled.button`
   border: 1px solid #e5bf4a;
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 export const FilterBtnIcon = styled.span`
   display: flex;

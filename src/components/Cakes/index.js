@@ -52,7 +52,7 @@ const Cakes = () => {
     orderBy: 'id',
     order: '',
   })
-  const [cakTypeInput, setCakTypeInput] = useState('')
+  const [cakeTypeInput, setCakTypeInput] = useState([])
   const [isFilterBtnActive, setFilterBtn] = useState(false)
 
   const onClickFilterBtn = () => setFilterBtn(prev => !prev)
@@ -72,7 +72,10 @@ const Cakes = () => {
     setCakeDataStatus({
       status: cakeListApiStatusConstants.in_progress,
     })
-    const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&order_by=${priceOrderInput.orderBy}&order=${priceOrderInput.order}`
+
+    const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
+      priceOrderInput.orderBy
+    }&order=${priceOrderInput.order}`
     const cakeApiResponse = await fetch(cakeApiUrl)
     if (cakeApiResponse.ok) {
       const data = await cakeApiResponse.json()
@@ -88,7 +91,7 @@ const Cakes = () => {
         status: cakeListApiStatusConstants.failure,
       })
     }
-  }, [searchInput, priceOrderInput])
+  }, [searchInput, cakeTypeInput, priceOrderInput])
 
   const {addCartItem} = useContext(CartContext)
 
@@ -134,6 +137,19 @@ const Cakes = () => {
       order: event.target.value,
     })
   }
+
+  const onChangeCakeType = event => {
+    const type = event.target.value
+    const notInList = cakeTypeInput.filter(eachItem => eachItem === type)
+    if (notInList.length === 0) {
+      setCakTypeInput(prev => [...prev, type])
+    } else {
+      const filterData = cakeTypeInput.filter(eachItem => eachItem !== type)
+      setCakTypeInput(filterData)
+    }
+  }
+  console.log(cakeTypeInput)
+
   const renderCakePageBannerContainer = () => (
     <CakesPageBannerBgContainer>
       <CakesPageBannerHeading>Delicious Cakes</CakesPageBannerHeading>
@@ -251,7 +267,12 @@ const Cakes = () => {
               <SortByPrice>Cake Type:</SortByPrice>
               <SortTypeContainer>
                 <SortOptionContainer>
-                  <SortOption type="checkbox" value="cake" id="type-cake" />
+                  <SortOption
+                    type="checkbox"
+                    value="cake"
+                    id="type-cake"
+                    onChange={onChangeCakeType}
+                  />
                   <SortLabel htmlFor="type-cake">Cake</SortLabel>
                 </SortOptionContainer>
                 <SortOptionContainer>
@@ -259,6 +280,7 @@ const Cakes = () => {
                     type="checkbox"
                     value="cup cake"
                     id="type-cup-cake"
+                    onChange={onChangeCakeType}
                   />
                   <SortLabel htmlFor="type-cup-cake">Cup Cake</SortLabel>
                 </SortOptionContainer>
