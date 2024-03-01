@@ -1,8 +1,10 @@
 import {useState} from 'react'
 
+import toast, {Toaster} from 'react-hot-toast'
 import {AiOutlineHome} from 'react-icons/ai'
 import {TiDeviceTablet} from 'react-icons/ti'
 import {BsEnvelope} from 'react-icons/bs'
+import {IoIosCheckmarkCircle} from 'react-icons/io'
 
 import Header from '../Header'
 import Footer from '../Footer'
@@ -47,6 +49,16 @@ const ContactUs = () => {
   const [subject, setSubject] = useState('')
   const [isSubjectErrMsgVisible, setSubjectErrMsgVisibility] = useState(false)
 
+  const notify = () =>
+    toast('Your mail sent successfully.', {
+      position: 'bottom-center',
+      style: {
+        background: '#07bc0c',
+        color: '#ffffff',
+      },
+      icon: <IoIosCheckmarkCircle size={20} />,
+    })
+
   const addMessageText = event => {
     setMessage(event.target.value)
     if (message.length > 50) {
@@ -90,7 +102,6 @@ const ContactUs = () => {
       setEmailErrMsgVisibility(false)
     }
   }
-
   const addSubjectInput = event => {
     setSubject(event.target.value)
     if (subject.length > 4) {
@@ -108,7 +119,7 @@ const ContactUs = () => {
     }
   }
 
-  const renderCakePageBannerContainer = () => (
+  const renderContactUsBannerContainer = () => (
     <ContactUsPageBannerBgContainer>
       <ContactUsPageBannerHeading>Contact Us</ContactUsPageBannerHeading>
     </ContactUsPageBannerBgContainer>
@@ -116,10 +127,20 @@ const ContactUs = () => {
 
   const onSubmitForm = event => {
     event.preventDefault()
-    setMessage('')
-    setEmail('')
-    setName('')
-    setSubject('')
+    const formNotNullValues =
+      message !== '' && nameInput !== '' && email !== '' && subject !== ''
+    const formValidationsStatus =
+      !isMessageVisible &&
+      !isEmailErrMsgVisible &&
+      !isNameErrMsgVisible &&
+      !isSubjectErrMsgVisible
+    if (formNotNullValues && formValidationsStatus) {
+      setMessage('')
+      setEmail('')
+      setName('')
+      setSubject('')
+      notify()
+    }
   }
   const renderFormContainer = () => (
     <ContactUsPageForm onSubmit={onSubmitForm}>
@@ -238,7 +259,7 @@ const ContactUs = () => {
     <ContactUsPageContainer>
       <Header />
       <ContactUsPageMainContainer>
-        {renderCakePageBannerContainer()}
+        {renderContactUsBannerContainer()}
         <ContactUsPageResponsiveContainer>
           <ContactUsPageLocationImage
             src="https://streetsmn.s3.us-east-2.amazonaws.com/wp-content/uploads/2013/10/Screen-shot-2013-10-27-at-10.51.49-PM.png"
@@ -252,6 +273,7 @@ const ContactUs = () => {
             {renderContactOptionsContainer()}
           </ContactUsPageAddressAndForm>
           <Footer />
+          <Toaster />
         </ContactUsPageResponsiveContainer>
       </ContactUsPageMainContainer>
     </ContactUsPageContainer>

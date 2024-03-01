@@ -72,7 +72,6 @@ const Cakes = () => {
     setCakeDataStatus({
       status: cakeListApiStatusConstants.in_progress,
     })
-
     const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
       priceOrderInput.orderBy
     }&order=${priceOrderInput.order}`
@@ -148,7 +147,6 @@ const Cakes = () => {
       setCakTypeInput(filterData)
     }
   }
-  console.log(cakeTypeInput)
 
   const renderCakePageBannerContainer = () => (
     <CakesPageBannerBgContainer>
