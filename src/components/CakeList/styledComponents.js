@@ -104,15 +104,14 @@ export const CakeQtyAddAndMinusBtn = styled.button`
 export const CakeAddToCartBtn = styled.button`
   color: #0a0a0a;
   background-color: #e5bf4a;
+  border: 1px solid #e5bf4a;
   font-family: 'Jost', 'sans serif';
   padding: 8px 16px;
   font-size: 14px;
-  border: none;
   outline: none;
   cursor: pointer;
   &:hover {
-    background-color: transparent;
-    border: 1px solid #e5bf4a;
     color: #e5bf4a;
+    background-color: transparent;
   }
 `

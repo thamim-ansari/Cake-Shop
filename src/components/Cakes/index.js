@@ -33,6 +33,10 @@ import {
   SortOptionContainer,
   SortOption,
   SortLabel,
+  CakePageEmptyResultContainer,
+  CakePageEmptyResultImage,
+  CakePageEmptyResultHeading,
+  CakePageEmptyResultDescription,
 } from './styledComponents'
 
 const cakeListApiStatusConstants = {
@@ -43,6 +47,7 @@ const cakeListApiStatusConstants = {
 }
 
 const Cakes = () => {
+  const {addCartItem} = useContext(CartContext)
   const [cakeData, setCakeData] = useState([])
   const [cakeDataStatus, setCakeDataStatus] = useState({
     status: cakeListApiStatusConstants.initial,
@@ -72,6 +77,7 @@ const Cakes = () => {
     setCakeDataStatus({
       status: cakeListApiStatusConstants.in_progress,
     })
+    console.log(cakeTypeInput)
     const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
       priceOrderInput.orderBy
     }&order=${priceOrderInput.order}`
@@ -91,8 +97,6 @@ const Cakes = () => {
       })
     }
   }, [searchInput, cakeTypeInput, priceOrderInput])
-
-  const {addCartItem} = useContext(CartContext)
 
   useEffect(() => {
     getCakeData()
@@ -154,19 +158,107 @@ const Cakes = () => {
     </CakesPageBannerBgContainer>
   )
 
-  const renderCakeListContainer = () => (
-    <CakesPageListContainer>
-      {cakeData.map(eachItem => (
-        <CakeList
-          key={eachItem.id}
-          cakeDetails={eachItem}
-          onClickAddProduct={onClickAddProduct}
-          onIncrementQty={onIncrementQty}
-          onDecrementQty={onDecrementQty}
-        />
-      ))}
-    </CakesPageListContainer>
+  const renderSearchContainer = () => (
+    <CakesPageSearchInputContainer>
+      <FilterBtn onClick={onClickFilterBtn}>
+        Filter
+        <FilterBtnIcon>
+          <GoTriangleDown />
+        </FilterBtnIcon>
+      </FilterBtn>
+      <CakesPageSearchInput
+        type="search"
+        placeholder="Search"
+        value={searchInput}
+        onChange={onChangeSearchInput}
+      />
+    </CakesPageSearchInputContainer>
   )
+
+  const renderFilterContainer = () => (
+    <SortContainer filter={isFilterBtnActive ? 'block' : 'none'}>
+      <SortByPriceAndTypeContainer>
+        <SortByPrice>Price:</SortByPrice>
+        <SortPriceContainer>
+          <SortOptionContainer>
+            <SortOption
+              type="radio"
+              value="ASC"
+              id="low-price"
+              name="price"
+              onClick={onChangePriceOrder}
+            />
+            <SortLabel htmlFor="low-price">Low to High</SortLabel>
+          </SortOptionContainer>
+          <SortOptionContainer>
+            <SortOption
+              type="radio"
+              value="DESC"
+              id="high-price"
+              name="price"
+              onClick={onChangePriceOrder}
+            />
+            <SortLabel htmlFor="high-price">High to Low</SortLabel>
+          </SortOptionContainer>
+        </SortPriceContainer>
+      </SortByPriceAndTypeContainer>
+      <SortByPriceAndTypeContainer>
+        <SortByPrice>Cake Type:</SortByPrice>
+        <SortTypeContainer>
+          <SortOptionContainer>
+            <SortOption
+              type="checkbox"
+              value="cake"
+              id="type-cake"
+              onChange={onChangeCakeType}
+            />
+            <SortLabel htmlFor="type-cake">Cake</SortLabel>
+          </SortOptionContainer>
+          <SortOptionContainer>
+            <SortOption
+              type="checkbox"
+              value="cup cake"
+              id="type-cup-cake"
+              onChange={onChangeCakeType}
+            />
+            <SortLabel htmlFor="type-cup-cake">Cup Cake</SortLabel>
+          </SortOptionContainer>
+        </SortTypeContainer>
+      </SortByPriceAndTypeContainer>
+    </SortContainer>
+  )
+
+  const renderEmptyCakeListContainer = () => (
+    <CakePageEmptyResultContainer>
+      <CakePageEmptyResultImage
+        src="https://img.freepik.com/free-vector/investigation-concept-illustration_114360-20311.jpg?t=st=1709368908~exp=1709372508~hmac=cc7a7c2c70e2ebc83260f365e98c1638800b30481ee43039e8b429e06ae745bb&w=740"
+        alt="empty-result-image"
+      />
+      <CakePageEmptyResultHeading>No Cakes Found</CakePageEmptyResultHeading>
+      <CakePageEmptyResultDescription>
+        We could not find any cakes. Try other filters.
+      </CakePageEmptyResultDescription>
+    </CakePageEmptyResultContainer>
+  )
+
+  const renderCakeListContainer = () => {
+    if (cakeData.length !== 0) {
+      return (
+        <CakesPageListContainer>
+          {cakeData.map(eachItem => (
+            <CakeList
+              key={eachItem.id}
+              cakeDetails={eachItem}
+              onClickAddProduct={onClickAddProduct}
+              onIncrementQty={onIncrementQty}
+              onDecrementQty={onDecrementQty}
+            />
+          ))}
+        </CakesPageListContainer>
+      )
+    }
+    return renderEmptyCakeListContainer()
+  }
 
   const renderLoader = () => (
     <CakesPageLoaderContainer>
@@ -221,70 +313,8 @@ const Cakes = () => {
       <CakesPageMainContainer>
         {renderCakePageBannerContainer()}
         <CakesPageResponsiveContainer>
-          <CakesPageSearchInputContainer>
-            <FilterBtn onClick={onClickFilterBtn}>
-              Filter
-              <FilterBtnIcon>
-                <GoTriangleDown />
-              </FilterBtnIcon>
-            </FilterBtn>
-            <CakesPageSearchInput
-              type="search"
-              placeholder="Search"
-              value={searchInput}
-              onChange={onChangeSearchInput}
-            />
-          </CakesPageSearchInputContainer>
-          <SortContainer filter={isFilterBtnActive ? 'block' : 'none'}>
-            <SortByPriceAndTypeContainer>
-              <SortByPrice>Price:</SortByPrice>
-              <SortPriceContainer>
-                <SortOptionContainer>
-                  <SortOption
-                    type="radio"
-                    value="ASC"
-                    id="low-price"
-                    name="price"
-                    onClick={onChangePriceOrder}
-                  />
-                  <SortLabel htmlFor="low-price">Low to High</SortLabel>
-                </SortOptionContainer>
-                <SortOptionContainer>
-                  <SortOption
-                    type="radio"
-                    value="DESC"
-                    id="high-price"
-                    name="price"
-                    onClick={onChangePriceOrder}
-                  />
-                  <SortLabel htmlFor="high-price">High to Low</SortLabel>
-                </SortOptionContainer>
-              </SortPriceContainer>
-            </SortByPriceAndTypeContainer>
-            <SortByPriceAndTypeContainer>
-              <SortByPrice>Cake Type:</SortByPrice>
-              <SortTypeContainer>
-                <SortOptionContainer>
-                  <SortOption
-                    type="checkbox"
-                    value="cake"
-                    id="type-cake"
-                    onChange={onChangeCakeType}
-                  />
-                  <SortLabel htmlFor="type-cake">Cake</SortLabel>
-                </SortOptionContainer>
-                <SortOptionContainer>
-                  <SortOption
-                    type="checkbox"
-                    value="cup cake"
-                    id="type-cup-cake"
-                    onChange={onChangeCakeType}
-                  />
-                  <SortLabel htmlFor="type-cup-cake">Cup Cake</SortLabel>
-                </SortOptionContainer>
-              </SortTypeContainer>
-            </SortByPriceAndTypeContainer>
-          </SortContainer>
+          {renderSearchContainer()}
+          {renderFilterContainer()}
           {renderCakeListView()}
           <FollowUs />
           <Footer />

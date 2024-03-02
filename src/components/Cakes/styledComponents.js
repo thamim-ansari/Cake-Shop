@@ -179,3 +179,34 @@ export const CakesPageRetryImage = styled.button`
     background-color: transparent;
   }
 `
+export const CakePageEmptyResultContainer = styled.div`
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const CakePageEmptyResultImage = styled.img`
+  width: 300px;
+`
+export const CakePageEmptyResultHeading = styled.p`
+  color: #e5bf4a;
+  font-family: 'Jost', 'sans serif';
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0px;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    margin: 20px 0px;
+  }
+`
+export const CakePageEmptyResultDescription = styled.p`
+  color: #fff;
+  font-family: 'Jost', 'sans serif';
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0px;
+`
