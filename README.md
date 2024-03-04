@@ -1,115 +1,222 @@
-Write the objective of the assignment yourself
+# Title
 
-### Refer to the image below:
+ReactJs Fullstack Assignment - Interactive Cake shop Application
 
-Add UI reference image yourself
+## Objective
 
-<div style="text-align: center;">
-     <!-- <img src="remove this text and add the image URL" alt="ui"> -->
-</div>
-<br/>
+The application should allow user to browse and search for cakes, View cakes, add cakes to a shopping cart, and place an order.
 
-### Design Files
+## Tech Stack
 
-<details>
-<summary>Add Route Name</summary>
-<br/>
-Add the design files according to the route (if any) and responsiveness
+Use ReactJs, React Router, Redux or React Context API, CSS or CSS frameworks, Git and GitHub for hosting the repository.
 
-<!-- - [Extra Small (Size < 576px) and Small (Size >= 576px)](remove this text and add the image URL here)
-- [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px)](remove this text and add the image URL here) -->
+## Completion Instructions
 
-</details>
+### Functionality
 
-### Set Up Instructions
+#### Must Have
 
-<details>
-<summary>Click to view</summary>
+- Build a ReactJs application with multiple pages and components, including Home, Cakes, About Us, Contact Us, and Cart pages.
 
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
+- Implement features such as search cakes, filter cakes, add to cart, remove from cart, and order placements.
 
-</details>
+#### Pages:
 
-### Assignment Completion Instructions
+### Home
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
+- Page Details:
 
-The app must have the following functionalities:
+  - Header - links for Home, Cakes, About, Contact Us, Facebook, Instagram, Twitter
+  - Banner - Heading and "OrderNow" Button
+  - Highlighted cake - Heading, Description and Image
+  - Carousel - Cake Image, Cake Name, Cake Price
+  - Video - Cake Video
+  - Follow Us - Cake Images and "Cake Shop" Button
+  - Footer - Description, "Social Media" Buttons
 
-- Add all the functionalities to be achieved(according to the route, if any) yourself
+- Navigation:
 
-</details>
+  - Header Navigation - Facebook,Instagram, Twitter Home and cart
+  - Banner Navigation - "orderNow" Button to Cart
+  - FollowUs Navigation - "Cake shop" Button to Instagram
+  - Footer Navigation - Facebook,Instagram and Twitter
 
-### Assignment Completion Checklist
+### Cakes
 
-<details>
-<summary>Click to view</summary>
+- Page Details:
+  - Header - links for Home, Cakes, About, Contact Us, Facebook, Instagram, Twitter
+  * Banner - Heading
+  * Filter - Filter Button with option to filter by cake type and price range low to high or high to low
+  * search - To search for a specific cakes
+  * Cake List - list cake with Image, Name, Description, Price, Quantity and Weight "+" button to Increase Quantity and "-" button to Decrease Quantity and "Add" button to add cake to cart "read More" button to read hidden description
+  - Follow Us - Cake Images and "Cake Shop" Button
+  - Footer - Description, "Social Media" Buttons
 
-- **Along with the below points, add your checklist specific to the assignment**
+* Navigation:
+  - Header Navigation - Facebook,Instagram, Twitter Home and cart
+  * FollowUs Navigation - "Cake shop" Button to Instagram
+  * Footer Navigation - Facebook,Instagram and Twitter
 
-- Read the instructions given in the assignment carefully and list down the **Assignment Completion Checklist** for the assignment and start working on it
-- The completion Checklist includes the below-mentioned points
-  - I have completed all the functionalities asked in the assignment
-  - I have used only the resources (Frameworks, Design files, APIs, third-party packages) mentioned in the assignment
-  - I have modified the README.md file based on my assignment instructions
-  - I have completed the assignment **ON TIME**
-- **Note:**
-  - Ensure that you have marked all the checklist points in your completion checklist before submitting the assignment
-  </details>
+### About
 
-### Quick Tips
+- Page Details:
 
-<details>
-<summary>Click to view</summary>
-<br>
+  - Header - links for Home, Cakes, About, Contact Us, Facebook, Instagram, Twitter
 
-- Add third-party packages list yourself
-</details>
+  * Banner - Heading
+  * About Our Story - Heading, Description and Image
+  * Our Services Banner - Heading, Icons and Description
+  * About Our Team - Heading, Description and Image
+  * Follow Us - Cake Images and "Cake Shop" Button
+  * Footer - Description, "Social Media" Buttons
 
-### Important Note
+* Navigation:
+  - Header Navigation - Facebook,Instagram, Twitter Home and cart
+  * FollowUs Navigation - "Cake shop" Button to Instagram
+  * Footer Navigation - Facebook,Instagram and Twitter
 
-<details>
-<summary>Click to view</summary>
-<br/>
+### Contact Us
 
-- Add any important note here, like user credentials for authentication.
+- Page Details:
 
-</details>
+  - Header - links for Home, Cakes, About, Contact Us, Facebook, Instagram, Twitter
 
-### Resources
+  * Banner - Heading
+  * Location - Image
+  * Get In Touch - form having name, Message, Email and Subject Input with Form validations and "Send" button to trigger toaster notification. Toaster notification appears when form validation passed.
+  * Ways of communication - Icon,Heading and Description
+  * Footer - Description, "Social Media" Buttons
 
-<details>
-<summary>Data Fetch URLs</summary>
-<br/>
+* Navigation:
+  - Header Navigation - Facebook,Instagram, Twitter Home and cart
+  - Footer Navigation - Facebook,Instagram and Twitter
 
-- Add the URLs list to fetch the data yourself
+### Cart
 
-</details>
+- Page Details:
+  - Header - links for Home, Cakes, About, Contact Us, Facebook, Instagram, Twitter
+  - Banner - Heading
+  * Remove All - "Remove All" button to remove all cart Items
+  * Cart List - Image, Name, Increase & Decrease Button, price and "Remove" button to Remove the Single Item
+  * Order Total -Total price, Item Quantity and "Check out" Button
 
-<details>
-<summary>Image URLs</summary>
-<br/>
+* Navigation:
+  - Header Navigation - Facebook,Instagram, Twitter Home and cart
+  - Footer Navigation - Facebook,Instagram and Twitter
 
-- Add the list of all image URLs needed in the assignment yourself.
+#### Nice to Have
 
-</details>
+- Implementing user authentication.
 
-<details>
-<summary>Colors</summary>
-<br/>
+* Animation and Transitions.
 
-Add the text and background colours to be used in the assignment yourself.
+### Guidelines to develop a project
 
-<!-- <div style="background-color: #3b82f6; width: 150px; padding: 10px; color: white">Hex: #3b82f6</div> -->
+#### Must Have
 
-</details>
+- Use Github
+  - Commit code regularly and commit Changes should be clear.
+  - Include a ReadMe file explaining the project setup, usage instruction, and any additional information
+  - The repo should be well organized and easy to read.
+  - The code should be clean, modular, and well-structure
+- The application should be visually appealing, and user friendly
+- The application should be handle all the errors
 
-<details>
-<summary>Font-families</summary>
+#### Nice to Have
 
-- Add the font-families to be used in the assignment yourself.
+- Implementing unit tests
 
-</details>
+### Submission Instructions
+
+#### Must Have
+
+- GitHub Repository
+
+#### Nice to Have
+
+- Deploy the application on a hosting platform.
+
+## Technical Details
+
+### Routes
+
+| Pages      | Route     | path        |
+| ---------- | --------- | ----------- |
+| Home       | Home      | /           |
+| Cakes      | Cakes     | /cakes      |
+| About      | About     | /about      |
+| Contact us | ContactUs | /contact-us |
+| Cart       | Cart      | /cart       |
+| Not found  | NotFound  | /not-found  |
+
+### Routes & Components
+
+**Home**
+
+| Components | Details                                                                                                                     | State | API |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- | ----- | --- |
+| Header     | Social Media Icons such as (Facebook, Instagram,Twitter), Logo , "Cart" Button and links for Home, Cakes, About, Contact Us | -     | -   |
+| CakeSlider | Cake Image, Name and Price                                                                                                  | -     | -   |
+| FollowUs   | Heading, "Cake shop" Button and Cake Images                                                                                 | -     | -   |
+| Footer     | description, Social media Buttons such as (Facebook, Instagram, Twitter)                                                    | -     | -   |
+
+**Cakes**
+
+| Components  | Details                                                                                                                     | State                                                                                       | API                                                                            |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Header      | Social Media Icons such as (Facebook, Instagram,Twitter), Logo , "Cart" Button and links for Home, Cakes, About, Contact Us | -                                                                                           | -                                                                              |
+| CakeList    | cake data such as Id, Image, Name, Description, Price, Quantity , Type , Weight                                             | cakeData, cakeDataStatus, searchInput, priceAndOrderInput, cakeTypeInput, isFilterBtnActive | http://localhost:3001/cakes/?search_q=&cake_type=cake&order_by=price&order=Asc |
+| CartContext | addCartItem                                                                                                                 | (Consumer Context)                                                                          | -                                                                              |
+| FollowUs    | Heading, "Cake shop" Button and Cake Images                                                                                 | -                                                                                           | -                                                                              |
+| Footer      | description, Social media Buttons such as (Facebook, Instagram, Twitter)                                                    | -                                                                                           | -                                                                              |
+
+**About**
+
+| Components | Details                                                                                                                     | State | API |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- | ----- | --- |
+| Header     | Social Media Icons such as (Facebook, Instagram,Twitter), Logo , "Cart" Button and links for Home, Cakes, About, Contact Us | -     | -   |
+| FollowUs   | Heading, "Cake shop" Button and Cake Images                                                                                 | -     | -   |
+| Footer     | description, Social media Buttons such as (Facebook, Instagram, Twitter)                                                    | -     | -   |
+
+**Contact Us**
+
+| Components | Details                                                                                                                     | State | API |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------- | ----- | --- |
+| Header     | Social Media Icons such as (Facebook, Instagram,Twitter), Logo , "Cart" Button and links for Home, Cakes, About, Contact Us | -     | -   |
+| Footer     | description, Social media Buttons such as (Facebook, Instagram, Twitter)                                                    | -     | -   |
+
+**Cart**
+
+| Components  | Details                                                                                                                     | State              | API |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------ | --- |
+| Header      | Social Media Icons such as (Facebook, Instagram,Twitter), Logo , "Cart" Button and links for Home, Cakes, About, Contact Us | -                  | -   |
+| CartList    | cake Id, Name, Price, Increase And Decrease Quantity Button and "Remove" Button                                             | -                  | -   |
+| CartContext | cartList, removeAllCartItems                                                                                                | (Context Consumer) | -   |
+| Footer      | description, Social media Buttons such as (Facebook, Instagram, Twitter)                                                    | -                  | -   |
+
+## Resources
+
+### Design files
+
+Home, Cakes, About, Contact Us and Cart
+
+Reference: [Colorlib Cake shop Template](https://colorlib.com/wp/template/cakeshop/)
+
+### APIs
+
+Cake Api data created using Sqlite database, Node Js and Express Js
+
+Api Link:
+
+```http
+http://localhost:3001/cakes/?search_q=&cake_type=cake&order_by=price&order=Asc
+```
+
+### Third-party packages
+
+- Icons (react-icons)
+- Loader (react-loader-spinner)
+- Video player (react-player)
+- Carousel (react-slick)
+- CSS library (styled-components)
+- Toast notification (react-hot-toast)

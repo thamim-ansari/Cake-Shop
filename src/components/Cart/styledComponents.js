@@ -4,12 +4,12 @@ export const CartPageContainer = styled.div`
   background-color: #0a0a0a;
   min-height: 100vh;
 `
-export const CartPageMainContainer = styled.div`
+export const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-export const CartPageBannerBgContainer = styled.div`
+export const CartBannerBgContainer = styled.div`
   background-image: url('https://mrwallpaper.com/images/hd/black-forest-cupcake-2xvk9qlah3xhf476.jpg');
   background-size: cover;
   background-position: center;
@@ -22,7 +22,7 @@ export const CartPageBannerBgContainer = styled.div`
     height: 300px;
   }
 `
-export const CartPageBannerHeading = styled.p`
+export const CartBannerHeading = styled.h1`
   color: #fff;
   font-family: 'Poiret One', 'sans serif';
   font-size: 40px;
@@ -32,13 +32,13 @@ export const CartPageBannerHeading = styled.p`
     font-size: 70px;
   }
 `
-export const CartPageResponsiveContainer = styled.div`
+export const CartResponsiveContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 `
-export const CartPageItemsRemoveAllBtn = styled.button`
+export const CartRemoveAllBtn = styled.button`
   color: #e3242b;
   background-color: transparent;
   font-family: 'Jost', 'sans serif';
@@ -52,43 +52,43 @@ export const CartPageItemsRemoveAllBtn = styled.button`
   margin-bottom: 20px;
 `
 
-export const CartPageListContainer = styled.ul`
+export const CartListContainer = styled.ul`
   padding-left: 0px;
   margin: 0px;
 `
-export const CartPageBillContainer = styled.div`
+export const BillContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const CartPageBillSubContainer = styled.div`
+export const BillSubContainer = styled.div`
   display: flex;
   justify-content: flex-end;
 `
-export const CartPageBillQtyAndHeadingContainer = styled.div`
+export const BillQtyAndHeadingContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const CartPageBillHeading = styled.p`
+export const BillHeading = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 24px;
   text-align: right;
   margin: 0px;
 `
-export const CartPageBillTotal = styled.p`
+export const BillTotal = styled.p`
   color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
   font-size: 24px;
   margin: 0px;
   margin-left: 5px;
 `
-export const CartPageBillQty = styled.p`
+export const BillQty = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 14px;
   margin: 0px;
 `
-export const CartPageCheckoutBtn = styled.button`
+export const CartCheckoutBtn = styled.button`
   color: #fff;
   background-color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
@@ -107,7 +107,7 @@ export const CartPageCheckoutBtn = styled.button`
     padding: 8px 100px;
   }
 `
-export const CartPageEmptyCartContainer = styled.div`
+export const EmptyCartContainer = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
@@ -115,13 +115,13 @@ export const CartPageEmptyCartContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const CartPageEmptyCartImage = styled.img`
+export const EmptyCartImage = styled.img`
   width: 300px;
   @media screen and (min-width: 768px) {
     width: 350px;
   }
 `
-export const CartPageEmptyCartHeading = styled.p`
+export const EmptyCartHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Poiret One', 'sans serif';
   font-size: 30px;
@@ -132,7 +132,7 @@ export const CartPageEmptyCartHeading = styled.p`
     font-size: 45px;
   }
 `
-export const CartPageEmptyCartDescription = styled.p`
+export const EmptyCartDescription = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 18px;

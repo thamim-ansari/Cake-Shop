@@ -2,15 +2,15 @@ import {useContext} from 'react'
 import {FaPlus, FaMinus} from 'react-icons/fa'
 import CartContext from '../../context/CartContext'
 import {
-  CartPageItemsContainer,
-  CartPageItemsImage,
-  CartPageItemsNameAndPrice,
-  CartPageItemsName,
-  CakeQtyAddAndMinusContainer,
+  CartItemsContainer,
+  CartItemImage,
+  CartItemNameAndPrice,
+  CartItemName,
+  CakeQtyIncreaseAndDecreaseContainer,
   CakeQty,
-  CakeQtyAddAndMinusBtn,
-  CartPageItemsPrice,
-  CartPageItemsRemoveBtn,
+  CakeQtyIncreaseAndDecreaseBtn,
+  CartItemPrice,
+  CartItemRemoveBtn,
 } from './styledComponents'
 
 const CartList = props => {
@@ -21,6 +21,7 @@ const CartList = props => {
     incrementCartItemQuantity,
     decrementCartItemQuantity,
   } = useContext(CartContext)
+
   const onClickRemoveBtn = () => {
     removeCartItem(id)
   }
@@ -28,29 +29,29 @@ const CartList = props => {
   const onClickIncreaseBtn = () => {
     incrementCartItemQuantity(id)
   }
+
   const onClickDecreaseBtn = () => {
     decrementCartItemQuantity(id)
   }
+
   return (
-    <CartPageItemsContainer>
-      <CartPageItemsImage src={imageUrl} alt={`${name}-image}`} />
-      <CartPageItemsNameAndPrice>
-        <CartPageItemsName>{name}</CartPageItemsName>
-        <CakeQtyAddAndMinusContainer>
-          <CakeQtyAddAndMinusBtn onClick={onClickDecreaseBtn}>
+    <CartItemsContainer>
+      <CartItemImage src={imageUrl} alt={`${name}-image}`} />
+      <CartItemNameAndPrice>
+        <CartItemName>{name}</CartItemName>
+        <CakeQtyIncreaseAndDecreaseContainer>
+          <CakeQtyIncreaseAndDecreaseBtn onClick={onClickDecreaseBtn}>
             <FaMinus color="#e5bf4a" />
-          </CakeQtyAddAndMinusBtn>
+          </CakeQtyIncreaseAndDecreaseBtn>
           <CakeQty>{qty}</CakeQty>
-          <CakeQtyAddAndMinusBtn onClick={onClickIncreaseBtn}>
+          <CakeQtyIncreaseAndDecreaseBtn onClick={onClickIncreaseBtn}>
             <FaPlus color="#e5bf4a" />
-          </CakeQtyAddAndMinusBtn>
-        </CakeQtyAddAndMinusContainer>
-        <CartPageItemsPrice>{`₹ ${price * qty}`}</CartPageItemsPrice>
-      </CartPageItemsNameAndPrice>
-      <CartPageItemsRemoveBtn onClick={onClickRemoveBtn}>
-        Remove
-      </CartPageItemsRemoveBtn>
-    </CartPageItemsContainer>
+          </CakeQtyIncreaseAndDecreaseBtn>
+        </CakeQtyIncreaseAndDecreaseContainer>
+        <CartItemPrice>{`₹ ${price * qty}`}</CartItemPrice>
+      </CartItemNameAndPrice>
+      <CartItemRemoveBtn onClick={onClickRemoveBtn}>Remove</CartItemRemoveBtn>
+    </CartItemsContainer>
   )
 }
 

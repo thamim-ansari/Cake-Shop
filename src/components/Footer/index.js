@@ -21,6 +21,7 @@ import {
   FooterContactNumber,
   FooterContactEmail,
 } from './styledComponents'
+import '../Header/index.css'
 
 const Footer = () => (
   <FooterContainer>
@@ -31,24 +32,45 @@ const Footer = () => (
         Follow us on the social media handles below.
       </FooterDescription>
       <FooterSocialIcons>
-        <FooterSocialIconsBtn>
-          <FooterSocialIconsBtnContainer>
-            <FaInstagram size={16} />
-          </FooterSocialIconsBtnContainer>
-          Instagram
-        </FooterSocialIconsBtn>
-        <FooterSocialIconsBtn>
-          <FooterSocialIconsBtnContainer>
-            <FaFacebook size={16} />
-          </FooterSocialIconsBtnContainer>
-          Facebook
-        </FooterSocialIconsBtn>
-        <FooterSocialIconsBtn>
-          <FooterSocialIconsBtnContainer>
-            <FaTwitter size={16} />
-          </FooterSocialIconsBtnContainer>
-          Twitter
-        </FooterSocialIconsBtn>
+        <a
+          href="https://www.instagram.com/"
+          rel="noreferrer"
+          target="_blank"
+          className="link-style"
+        >
+          <FooterSocialIconsBtn>
+            <FooterSocialIconsBtnContainer>
+              <FaInstagram size={16} />
+            </FooterSocialIconsBtnContainer>
+            Instagram
+          </FooterSocialIconsBtn>
+        </a>
+        <a
+          href="https://www.facebook.com/"
+          rel="noreferrer"
+          target="_blank"
+          className="link-style"
+        >
+          <FooterSocialIconsBtn>
+            <FooterSocialIconsBtnContainer>
+              <FaFacebook size={16} />
+            </FooterSocialIconsBtnContainer>
+            Facebook
+          </FooterSocialIconsBtn>
+        </a>
+        <a
+          href="https://twitter.com/"
+          rel="noreferrer"
+          target="_blank"
+          className="link-style"
+        >
+          <FooterSocialIconsBtn>
+            <FooterSocialIconsBtnContainer>
+              <FaTwitter size={16} />
+            </FooterSocialIconsBtnContainer>
+            Twitter
+          </FooterSocialIconsBtn>
+        </a>
       </FooterSocialIcons>
     </FooterDescAndSocialIcons>
     <FooterLocationContainer>

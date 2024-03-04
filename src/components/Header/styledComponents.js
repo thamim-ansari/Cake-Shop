@@ -24,8 +24,7 @@ export const WebsiteLogoImage = styled.img`
   width: 200px;
 `
 export const CartIcon = styled.span`
-  margin-right: 3px;
-  margin-top: 3px;
+  margin: 3px 3px 0px 0px;
 `
 export const NavBarContactUsBtn = styled.button`
   display: flex;

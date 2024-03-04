@@ -5,8 +5,7 @@ export const CakeListItem = styled.li`
   margin-bottom: 15px;
   @media screen and (min-width: 768px) {
     width: 50%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0px 10px 0px;
     margin-bottom: 30px;
   }
   @media screen and (min-width: 992px) {
@@ -37,7 +36,7 @@ export const CakeWeight = styled.p`
   font-family: 'Poiret One', 'sans serif';
   font-size: 10px;
 `
-export const CakeItemDetailsAndOrderContainer = styled.div`
+export const CakeItemDetailsAndAddCakeContainer = styled.div`
   display: flex;
 `
 export const CakePriceAndDescription = styled.div`
@@ -72,14 +71,14 @@ export const CakePrice = styled.p`
   font-weight: 500;
   margin: 0px;
 `
-export const CakeOrderContainer = styled.div`
+export const AddCakeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 30%;
 `
-export const CakeQtyAddAndMinusContainer = styled.div`
+export const CakeQtyIncreaseAndDecreaseContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +90,7 @@ export const CakeQty = styled.p`
   font-size: 20px;
   margin: 0px 5px 0px 5px;
 `
-export const CakeQtyAddAndMinusBtn = styled.button`
+export const CakeQtyIncreaseAndDecreaseBtn = styled.button`
   background-color: transparent;
   border: 1px solid #e5bf4a;
   padding: 5px;
@@ -101,7 +100,7 @@ export const CakeQtyAddAndMinusBtn = styled.button`
   align-items: center;
   cursor: pointer;
 `
-export const CakeAddToCartBtn = styled.button`
+export const AddCakeToCartBtn = styled.button`
   color: #0a0a0a;
   background-color: #e5bf4a;
   border: 1px solid #e5bf4a;

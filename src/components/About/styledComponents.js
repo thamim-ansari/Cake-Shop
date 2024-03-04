@@ -4,13 +4,13 @@ export const AboutPageContainer = styled.div`
   background-color: #0a0a0a;
   min-height: 100vh;
 `
-export const AboutPageMainContainer = styled.div`
+export const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
-export const AboutPageBannerBgContainer = styled.div`
+export const AboutBannerBgContainer = styled.div`
   background-image: url('https://mrwallpaper.com/images/hd/black-forest-cupcake-2xvk9qlah3xhf476.jpg');
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@ export const AboutPageBannerBgContainer = styled.div`
     height: 300px;
   }
 `
-export const AboutPageBannerHeading = styled.h1`
+export const AboutBannerHeading = styled.h1`
   color: #fff;
   font-family: 'Poiret One', 'sans serif';
   font-size: 40px;

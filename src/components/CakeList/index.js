@@ -7,16 +7,16 @@ import {
   CakeImage,
   CakeName,
   CakeWeight,
-  CakeItemDetailsAndOrderContainer,
+  CakeItemDetailsAndAddCakeContainer,
   CakePriceAndDescription,
   CakeDescription,
   CakeDescriptionReadMoreBtn,
   CakePrice,
-  CakeOrderContainer,
-  CakeQtyAddAndMinusContainer,
+  AddCakeContainer,
+  CakeQtyIncreaseAndDecreaseContainer,
   CakeQty,
-  CakeQtyAddAndMinusBtn,
-  CakeAddToCartBtn,
+  CakeQtyIncreaseAndDecreaseBtn,
+  AddCakeToCartBtn,
 } from './styledComponents'
 
 const CakeList = props => {
@@ -51,52 +51,60 @@ const CakeList = props => {
 
   const readMoreBtnValue = isReadMoreEnabled ? 'read less...' : ' read more...'
 
+  const renderCakeDetailsContainer = () => (
+    <CakePriceAndDescription>
+      <CakeWeight>{`${weight}g (each)`}</CakeWeight>
+      <CakeDescription>
+        {limitedDescription}
+        <CakeDescriptionReadMoreBtn
+          visibility={descriptionLength > 100 ? 'inline-block' : 'none'}
+          onClick={onClickReadMore}
+        >
+          {readMoreBtnValue}
+        </CakeDescriptionReadMoreBtn>
+      </CakeDescription>
+      <CakePrice>{`₹ ${price * qty}`}</CakePrice>
+    </CakePriceAndDescription>
+  )
+
+  const renderAddOrRemoveQtyContainer = () => (
+    <CakeQtyIncreaseAndDecreaseContainer>
+      <CakeQtyIncreaseAndDecreaseBtn
+        type="button"
+        onClick={onClickDecrementBtn}
+        disabled={isBtnEnabled}
+      >
+        <FaMinus color="#e5bf4a" />
+      </CakeQtyIncreaseAndDecreaseBtn>
+      <CakeQty>{qty}</CakeQty>
+      <CakeQtyIncreaseAndDecreaseBtn
+        type="button"
+        onClick={onClickIncrementBtn}
+        disabled={isBtnEnabled}
+      >
+        <FaPlus color="#e5bf4a" />
+      </CakeQtyIncreaseAndDecreaseBtn>
+    </CakeQtyIncreaseAndDecreaseContainer>
+  )
+
   return (
     <CakeListItem>
       <CakeImage src={imageUrl} alt={`${name}-image`} />
       <CakeItemDetails>
         <CakeName>{name}</CakeName>
-        <CakeItemDetailsAndOrderContainer>
-          <CakePriceAndDescription>
-            <CakeWeight>{`${weight}g (each)`}</CakeWeight>
-            <CakeDescription>
-              {limitedDescription}
-              <CakeDescriptionReadMoreBtn
-                visibility={descriptionLength > 100 ? 'inline-block' : 'none'}
-                onClick={onClickReadMore}
-              >
-                {readMoreBtnValue}
-              </CakeDescriptionReadMoreBtn>
-            </CakeDescription>
-            <CakePrice>{`₹ ${price * qty}`}</CakePrice>
-          </CakePriceAndDescription>
-          <CakeOrderContainer>
-            <CakeQtyAddAndMinusContainer>
-              <CakeQtyAddAndMinusBtn
-                type="button"
-                onClick={onClickDecrementBtn}
-                disabled={isBtnEnabled}
-              >
-                <FaMinus color="#e5bf4a" />
-              </CakeQtyAddAndMinusBtn>
-              <CakeQty>{qty}</CakeQty>
-              <CakeQtyAddAndMinusBtn
-                type="button"
-                onClick={onClickIncrementBtn}
-                disabled={isBtnEnabled}
-              >
-                <FaPlus color="#e5bf4a" />
-              </CakeQtyAddAndMinusBtn>
-            </CakeQtyAddAndMinusContainer>
-            <CakeAddToCartBtn
+        <CakeItemDetailsAndAddCakeContainer>
+          {renderCakeDetailsContainer()}
+          <AddCakeContainer>
+            {renderAddOrRemoveQtyContainer()}
+            <AddCakeToCartBtn
               type="button"
               onClick={onClickAddProductBtn}
               disabled={isBtnEnabled}
             >
               Add to cart
-            </CakeAddToCartBtn>
-          </CakeOrderContainer>
-        </CakeItemDetailsAndOrderContainer>
+            </AddCakeToCartBtn>
+          </AddCakeContainer>
+        </CakeItemDetailsAndAddCakeContainer>
       </CakeItemDetails>
     </CakeListItem>
   )

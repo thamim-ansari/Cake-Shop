@@ -8,62 +8,58 @@ import Footer from '../Footer'
 
 import {
   HomePageContainer,
-  HomeMainContainer,
+  HomeContainer,
   HomeBannerBgContainer,
   HomeBannerContainer,
-  HomeBannerContainerHeading,
-  HomeBannerContainerOrderNowBtn,
-  HomePageResponsiveContainer,
-  HomePageHighLightedCakeContainer,
-  HomePageHighLightedCakeMainHeading,
-  HomePageHighLightedCakeMainHeadingLine,
-  HomePageHighLightedCakeSubHeadingDescAndImageContainer,
-  HomePageHighLightedCakeSubHeadingAndDescContainer,
-  HomePageHighLightedCakeSubHeading,
-  HomePageHighLightedCakeDescription,
-  HomePageHighLightedCakeImage,
-  CakeVideoContainer,
-  CakeVideoThumbnailImage,
+  HomeBannerHeading,
+  HomeOrderNowBtn,
+  HomeResponsiveContainer,
+  HomeHighlightedCakeContainer,
+  HomeHighlightedCakeHeading,
+  HomeHighlightedCakeHeadingUnderline,
+  HomeHighlightedCakeContentAndImageContainer,
+  HomePageHighlightedCakeContentContainer,
+  HomeHighlightedCakeSubHeading,
+  HomeHighlightedCakeDescription,
+  HomeHighlightedCakeImage,
+  HomeCakeVideoContainer,
+  HomeCakeVideoThumbnailImage,
 } from './styledComponents'
 
 const Home = () => {
   const renderHomeBannerContainer = () => (
     <HomeBannerBgContainer>
       <HomeBannerContainer>
-        <HomeBannerContainerHeading>
-          Healthy Made Delicious Cake
-        </HomeBannerContainerHeading>
+        <HomeBannerHeading>Healthy Made Delicious Cake</HomeBannerHeading>
         <Link to="/cakes">
-          <HomeBannerContainerOrderNowBtn>
-            ORDER NOW
-          </HomeBannerContainerOrderNowBtn>
+          <HomeOrderNowBtn>ORDER NOW</HomeOrderNowBtn>
         </Link>
       </HomeBannerContainer>
     </HomeBannerBgContainer>
   )
 
   const renderHighlightedCakeContainer = () => (
-    <HomePageHighLightedCakeContainer>
-      <HomePageHighLightedCakeMainHeading>
+    <HomeHighlightedCakeContainer>
+      <HomeHighlightedCakeHeading>
         This is Rainbow Cake. Awesome Looking and Tasting Cake.
         <br /> Order now and have a Bite.
-      </HomePageHighLightedCakeMainHeading>
-      <HomePageHighLightedCakeMainHeadingLine />
-      <HomePageHighLightedCakeSubHeadingDescAndImageContainer>
-        <HomePageHighLightedCakeSubHeadingAndDescContainer>
-          <HomePageHighLightedCakeSubHeading>
+      </HomeHighlightedCakeHeading>
+      <HomeHighlightedCakeHeadingUnderline />
+      <HomeHighlightedCakeContentAndImageContainer>
+        <HomePageHighlightedCakeContentContainer>
+          <HomeHighlightedCakeSubHeading>
             The Rainbow cake a three-layered almond flavored Italian-American
             Cake.
-          </HomePageHighLightedCakeSubHeading>
-          <HomePageHighLightedCakeDescription>
+          </HomeHighlightedCakeSubHeading>
+          <HomeHighlightedCakeDescription>
             This beautiful Rainbow Cake is perfect for any occasion, from
             birthday parties to holidays! It’s always a crowd-pleaser as you cut
             into it, revealing six stunning colorful layers with buttercream
             throughout. It’s moist, flavorful, and absolutely show-stopping.If
             you want to see everyone’s faces light up when you cut into a cake,
             then you must try this rainbow cake!.
-          </HomePageHighLightedCakeDescription>
-          <HomePageHighLightedCakeDescription>
+          </HomeHighlightedCakeDescription>
+          <HomeHighlightedCakeDescription>
             It’s positively stunning with all the colors of the rainbow
             including purple, blue, green, yellow, orange, and red layers with
             white buttercream between each layer. It is such a festive cake that
@@ -72,23 +68,23 @@ const Home = () => {
             smooth buttercream icing, and topped with some rainbow sprinkles to
             give everyone a hint of what’s inside. It’s truly an impressive cake
             that’s fun for all ages.
-          </HomePageHighLightedCakeDescription>
-        </HomePageHighLightedCakeSubHeadingAndDescContainer>
-        <HomePageHighLightedCakeImage
+          </HomeHighlightedCakeDescription>
+        </HomePageHighlightedCakeContentContainer>
+        <HomeHighlightedCakeImage
           src="https://thecakesolution.co.uk/wp-content/uploads/2023/12/Rainbow-1-scaled.jpg"
           alt="rainbow-cake-img"
         />
-      </HomePageHighLightedCakeSubHeadingDescAndImageContainer>
-    </HomePageHighLightedCakeContainer>
+      </HomeHighlightedCakeContentAndImageContainer>
+    </HomeHighlightedCakeContainer>
   )
 
   const renderVideoPlayer = () => (
-    <CakeVideoContainer>
+    <HomeCakeVideoContainer>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=uBqBHsoMd08}"
         controls
         light={
-          <CakeVideoThumbnailImage
+          <HomeCakeVideoThumbnailImage
             src="https://www.mashed.com/img/gallery/use-frosting-as-sugary-glue-to-fix-broken-cakes-in-a-snap/l-intro-1689143819.jpg"
             alt="cake-making-video"
           />
@@ -96,22 +92,22 @@ const Home = () => {
         width="100%"
         height="100%"
       />
-    </CakeVideoContainer>
+    </HomeCakeVideoContainer>
   )
 
   return (
     <HomePageContainer>
       <Header />
-      <HomeMainContainer>
+      <HomeContainer>
         {renderHomeBannerContainer()}
-        <HomePageResponsiveContainer>
+        <HomeResponsiveContainer>
           {renderHighlightedCakeContainer()}
           <CakeSlider />
           {renderVideoPlayer()}
           <FollowUs />
           <Footer />
-        </HomePageResponsiveContainer>
-      </HomeMainContainer>
+        </HomeResponsiveContainer>
+      </HomeContainer>
     </HomePageContainer>
   )
 }

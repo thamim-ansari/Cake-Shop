@@ -4,7 +4,7 @@ export const HomePageContainer = styled.div`
   background-color: #0a0a0a;
   min-height: 100vh;
 `
-export const HomeMainContainer = styled.div`
+export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,20 +25,19 @@ export const HomeBannerBgContainer = styled.div`
 export const HomeBannerContainer = styled.div`
   width: 90%;
 `
-export const HomeBannerContainerHeading = styled.h1`
+export const HomeBannerHeading = styled.h1`
   color: #fff;
   font-family: 'Poiret One', 'sans serif';
   font-size: 32px;
   line-height: 1.2;
   font-weight: 300;
-  margin: 0px;
-  margin-bottom: 40px;
+  margin: 0px 0px 40px;
   @media screen and (min-width: 768px) {
     font-size: 70px;
     width: 500px;
   }
 `
-export const HomeBannerContainerOrderNowBtn = styled.button`
+export const HomeOrderNowBtn = styled.button`
   background-color: #e5bf4a;
   color: #0a0a0a;
   font-family: 'Jost', sans-serif;
@@ -52,22 +51,22 @@ export const HomeBannerContainerOrderNowBtn = styled.button`
     border: 1px solid #e5bf4a;
   }
 `
-export const HomePageResponsiveContainer = styled.div`
+export const HomeResponsiveContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-export const HomePageHighLightedCakeContainer = styled.div`
+export const HomeHighlightedCakeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  align-items: center;
+  margin: 40px 0px;
   @media screen and (min-width: 768px) {
     width: 80%;
   }
 `
-export const HomePageHighLightedCakeMainHeading = styled.p`
+export const HomeHighlightedCakeHeading = styled.p`
   font-family: 'Poiret One', 'sans serif';
   color: #fff;
   text-align: center;
@@ -78,78 +77,73 @@ export const HomePageHighLightedCakeMainHeading = styled.p`
     font-size: 30px;
   }
 `
-export const HomePageHighLightedCakeMainHeadingLine = styled.hr`
+export const HomeHighlightedCakeHeadingUnderline = styled.hr`
   border: 1px solid #e5bf4a;
   width: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0px;
+  text-align: center;
   @media screen and (min-width: 768px) {
-    margin-top: 30px;
-    margin-bottom: 45px;
+    margin: 30px 0px 45px;
   }
 `
-export const HomePageHighLightedCakeSubHeadingDescAndImageContainer = styled.div`
+export const HomeHighlightedCakeContentAndImageContainer = styled.div`
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 992px) {
     flex-direction: row;
   }
 `
-export const HomePageHighLightedCakeSubHeadingAndDescContainer = styled.div`
+export const HomePageHighlightedCakeContentContainer = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const HomePageHighLightedCakeSubHeading = styled.p`
+export const HomeHighlightedCakeSubHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Poiret One', 'sans serif';
   font-size: 18px;
-  margin: 0px;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin: 0px 0px 20px 0px;
   @media screen and (min-width: 768px) {
     font-size: 24px;
     width: 65%;
   }
 `
-export const HomePageHighLightedCakeDescription = styled.p`
+export const HomeHighlightedCakeDescription = styled.p`
   color: #fff;
   font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5;
-  margin: 0px;
-  margin-bottom: 15px;
+  margin: 0px 0px 15px 0px;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
 `
-export const HomePageHighLightedCakeImage = styled.img`
+export const HomeHighlightedCakeImage = styled.img`
   width: 100%;
-  margin-top: 15px;
+  margin: 15px 0px 0px 0px;
   @media screen and (min-width: 768px) & (max-width: 992) {
     width: 100%;
     height: 100%;
   }
   @media screen and (min-width: 992px) {
     width: 40%;
-    margin-top: 0px;
-    margin-left: 15px;
+    margin: 0px 0px 0px 15px;
   }
 `
-export const CakeVideoContainer = styled.div`
+export const HomeCakeVideoContainer = styled.div`
   position: relative;
   width: 100%;
-  margin-top: 20px;
+  margin: 20px 0px 0px 0px;
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin: 40px 0px;
   }
   @media screen and (min-width: 992px) {
     height: 668px;
   }
 `
 
-export const CakeVideoThumbnailImage = styled.img`
+export const HomeCakeVideoThumbnailImage = styled.img`
   width: 100%;
   height: 100%;
 `

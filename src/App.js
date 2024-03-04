@@ -28,6 +28,7 @@ const App = () => {
       addCartData(prev => [...prev, cake])
     }
   }
+
   const onRemoveAllCake = () => {
     addCartData([])
   }
@@ -36,6 +37,7 @@ const App = () => {
     const removedItemList = cartList.filter(eachItem => eachItem.id !== id)
     addCartData(removedItemList)
   }
+
   const onIncrementQty = id => {
     addCartData(prev =>
       prev.map(eachItem => {
@@ -47,6 +49,7 @@ const App = () => {
       }),
     )
   }
+
   const onDecrementQty = id => {
     addCartData(prev =>
       prev.map(eachItem => {
@@ -61,6 +64,7 @@ const App = () => {
       }),
     )
   }
+
   return (
     <CartContext.Provider
       value={{

@@ -4,12 +4,12 @@ export const ContactUsPageContainer = styled.div`
   background-color: #0a0a0a;
   min-height: 100vh;
 `
-export const ContactUsPageMainContainer = styled.div`
+export const ContactUsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-export const ContactUsPageBannerBgContainer = styled.div`
+export const ContactUsBannerBgContainer = styled.div`
   width: 100%;
   background-image: url('https://mrwallpaper.com/images/hd/black-forest-cupcake-2xvk9qlah3xhf476.jpg');
   background-size: cover;
@@ -22,7 +22,7 @@ export const ContactUsPageBannerBgContainer = styled.div`
     height: 300px;
   }
 `
-export const ContactUsPageBannerHeading = styled.h1`
+export const ContactUsBannerHeading = styled.h1`
   color: #fff;
   font-family: 'Poiret One', 'sans serif';
   font-size: 40px;
@@ -32,10 +32,10 @@ export const ContactUsPageBannerHeading = styled.h1`
     font-size: 70px;
   }
 `
-export const ContactUsPageResponsiveContainer = styled.div`
+export const ContactUsResponsiveContainer = styled.div`
   width: 90%;
 `
-export const ContactUsPageLocationImage = styled.img`
+export const ContactUsLocationImage = styled.img`
   width: 100%;
   height: 195px;
   margin-top: 40px;
@@ -46,14 +46,14 @@ export const ContactUsPageLocationImage = styled.img`
     margin-bottom: 64px;
   }
 `
-export const ContactUsPageAddressAndForm = styled.div`
+export const ContactUsAddressAndForm = styled.div`
   @media screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
   }
 `
-export const ContactUsPageForm = styled.form`
+export const ContactUsForm = styled.form`
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +62,7 @@ export const ContactUsPageForm = styled.form`
     width: 65%;
   }
 `
-export const ContactUsPageFormHeading = styled.p`
+export const ContactUsFormHeading = styled.p`
   color: #ffffff;
   font-family: 'Poiret One', 'sans serif';
   margin: 0px;
@@ -70,7 +70,7 @@ export const ContactUsPageFormHeading = styled.p`
   font-weight: 600;
   margin-bottom: 20px;
 `
-export const ContactUsPageFormMessageContainer = styled.div`
+export const ContactUsFormMessageContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@ export const ContactUsPageFormMessageContainer = styled.div`
     width: 100%;
   }
 `
-export const ContactUsPageFormMessageInput = styled.textarea`
+export const ContactUsFormMessageInput = styled.textarea`
   color: #ffffff;
   background-color: transparent;
   border: 1px solid #ffffff;
@@ -89,7 +89,7 @@ export const ContactUsPageFormMessageInput = styled.textarea`
   margin: 0px;
   outline: none;
 `
-export const ContactUsPageFormLabel = styled.label`
+export const ContactUsFormLabel = styled.label`
   color: #ff0000;
   font-family: 'Jost', 'sans serif';
   font-weight: 300;
@@ -98,7 +98,7 @@ export const ContactUsPageFormLabel = styled.label`
   line-height: 1.2;
   margin-top: 5px;
 `
-export const ContactUsPageFormNameContainer = styled.div`
+export const ContactUsFormNameContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -107,7 +107,7 @@ export const ContactUsPageFormNameContainer = styled.div`
     padding-right: 10px;
   }
 `
-export const ContactUsPageFormNameInput = styled.input`
+export const ContactUsFormNameInput = styled.input`
   color: #ffffff;
   background-color: transparent;
   border: 1px solid #ffffff;
@@ -119,7 +119,7 @@ export const ContactUsPageFormNameInput = styled.input`
   margin: 0px;
   outline: none;
 `
-export const ContactUsPageFormEmailContainer = styled.div`
+export const ContactUsFormEmailContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -128,7 +128,7 @@ export const ContactUsPageFormEmailContainer = styled.div`
     padding-left: 10px;
   }
 `
-export const ContactUsPageFormEmailInput = styled.input`
+export const ContactUsFormEmailInput = styled.input`
   color: #ffffff;
   background-color: transparent;
   border: 1px solid #ffffff;
@@ -140,7 +140,7 @@ export const ContactUsPageFormEmailInput = styled.input`
   margin: 0px;
   outline: none;
 `
-export const ContactUsPageFormSubjectContainer = styled.div`
+export const ContactUsFormSubjectContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
@@ -148,7 +148,7 @@ export const ContactUsPageFormSubjectContainer = styled.div`
     width: 100%;
   }
 `
-export const ContactUsPageFormSubjectInput = styled.input`
+export const ContactUsFormSubjectInput = styled.input`
   color: #ffffff;
   background-color: transparent;
   border: 1px solid #ffffff;
@@ -160,54 +160,51 @@ export const ContactUsPageFormSubjectInput = styled.input`
   margin: 0px;
   outline: none;
 `
-export const ContactUsPageFormSubmitBtn = styled.button`
+export const ContactUsFormSubmitBtn = styled.button`
   display: flex;
   align-items: center;
   color: #0a0a0a;
+  background-color: #e5bf4a;
   font-family: 'Jost', sans-serif;
   font-size: 15px;
-  background-color: #e5bf4a;
+  border: 1px solid #e5bf4a;
   padding: 12px 34px;
   margin-top: 20px;
-  border: none;
   cursor: pointer;
   &:hover {
     color: #e5bf4a;
     background-color: transparent;
-    border: 1px solid #e5bf4a;
-    transition: 300ms ease-out;
   }
   @media screen and (min-width: 768px) {
     padding: 22px 41px;
   }
 `
-export const ContactUsPageContactOptionsContainer = styled.ul`
+export const ContactUsContactOptionsContainer = styled.ul`
   display: flex;
   flex-direction: column;
   padding-left: 0px;
-  margin: 0px;
-  margin-top: 25px;
+  margin: 25px 0px 0px 0px;
   @media screen and (min-width: 992px) {
     width: 25%;
     margin: 0px;
   }
 `
-export const ContactUsPageContactOptionsIconAndInfoContainer = styled.li`
+export const ContactUsContactOptionsIconAndInfoContainer = styled.li`
   list-style-type: none;
   display: flex;
   align-items: flex-start;
   margin-bottom: 30px;
 `
-export const ContactUsPageContactOptionsInfoContainer = styled.div`
+export const ContactUsContactOptionsInfoContainer = styled.div`
   margin-left: 15px;
 `
-export const ContactUsPageContactOptionsInfoHeading = styled.p`
+export const ContactUsContactOptionsInfoHeading = styled.p`
   color: #ffffff;
   font-family: 'Poiret One', 'sans serif';
   line-height: 1.5;
   margin: 0px;
 `
-export const ContactUsPageContactOptionsInfoDescription = styled.p`
+export const ContactUsContactOptionsInfoDescription = styled.p`
   color: #ffffff;
   font-family: 'Jost', 'sans serif';
   line-height: 1.5;

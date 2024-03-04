@@ -10,33 +10,33 @@ import CartContext from '../../context/CartContext'
 
 import {
   CakesPageContainer,
-  CakesPageMainContainer,
-  CakesPageBannerBgContainer,
-  CakesPageBannerHeading,
-  CakesPageResponsiveContainer,
-  CakesPageSearchInputContainer,
-  CakesPageSearchInput,
-  CakesPageListContainer,
-  CakesPageLoaderContainer,
-  CakesPageFailureContainerContainer,
-  CakesPageFailureImage,
-  CakesPageFailureHeadingContainer,
-  CakesPageFailureHeadingDescription,
-  CakesPageRetryImage,
-  FilterBtn,
+  CakesContainer,
+  CakesBannerBgContainer,
+  CakesBannerHeading,
+  CakesResponsiveContainer,
+  CakesSearchInputContainer,
+  CakesSearchInput,
+  CakesListContainer,
+  CakesLoaderContainer,
+  CakesFailureContainer,
+  CakesFailureImage,
+  CakesFailureHeading,
+  CakesFailureDescription,
+  CakesRetryBtn,
+  CakesFilterBtn,
   FilterBtnIcon,
-  SortContainer,
-  SortByPriceAndTypeContainer,
+  FilterByContainer,
+  FilterByPriceAndTypeContainer,
   SortPriceContainer,
-  SortTypeContainer,
+  FilterByTypeContainer,
   SortByPrice,
-  SortOptionContainer,
-  SortOption,
-  SortLabel,
-  CakePageEmptyResultContainer,
-  CakePageEmptyResultImage,
-  CakePageEmptyResultHeading,
-  CakePageEmptyResultDescription,
+  FilterOptionsContainer,
+  FilterOptions,
+  FilterLabel,
+  CakesEmptyResultContainer,
+  CakesEmptyResultImage,
+  CakesEmptyResultHeading,
+  CakeEmptyResultDescription,
 } from './styledComponents'
 
 const cakeListApiStatusConstants = {
@@ -53,7 +53,7 @@ const Cakes = () => {
     status: cakeListApiStatusConstants.initial,
   })
   const [searchInput, setSearchInput] = useState('')
-  const [priceOrderInput, setPriceOrderInput] = useState({
+  const [priceAndOrderInput, setPriceOrderInput] = useState({
     orderBy: 'id',
     order: '',
   })
@@ -79,8 +79,8 @@ const Cakes = () => {
     })
     console.log(cakeTypeInput)
     const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
-      priceOrderInput.orderBy
-    }&order=${priceOrderInput.order}`
+      priceAndOrderInput.orderBy
+    }&order=${priceAndOrderInput.order}`
     const cakeApiResponse = await fetch(cakeApiUrl)
     if (cakeApiResponse.ok) {
       const data = await cakeApiResponse.json()
@@ -96,7 +96,7 @@ const Cakes = () => {
         status: cakeListApiStatusConstants.failure,
       })
     }
-  }, [searchInput, cakeTypeInput, priceOrderInput])
+  }, [searchInput, cakeTypeInput, priceAndOrderInput])
 
   useEffect(() => {
     getCakeData()
@@ -106,6 +106,7 @@ const Cakes = () => {
     const filteredCakeData = cakeData.find(eachItem => eachItem.id === id)
     addCartItem(filteredCakeData)
   }
+
   const onIncrementQty = id => {
     setCakeData(prev =>
       prev.map(eachItem => {
@@ -117,6 +118,7 @@ const Cakes = () => {
       }),
     )
   }
+
   const onDecrementQty = id => {
     setCakeData(prev =>
       prev.map(eachItem => {
@@ -134,6 +136,7 @@ const Cakes = () => {
   const onChangeSearchInput = event => {
     setSearchInput(event.target.value)
   }
+
   const onChangePriceOrder = event => {
     setPriceOrderInput({
       orderBy: 'price',
@@ -153,98 +156,106 @@ const Cakes = () => {
   }
 
   const renderCakePageBannerContainer = () => (
-    <CakesPageBannerBgContainer>
-      <CakesPageBannerHeading>Delicious Cakes</CakesPageBannerHeading>
-    </CakesPageBannerBgContainer>
+    <CakesBannerBgContainer>
+      <CakesBannerHeading>Delicious Cakes</CakesBannerHeading>
+    </CakesBannerBgContainer>
   )
 
   const renderSearchContainer = () => (
-    <CakesPageSearchInputContainer>
-      <FilterBtn onClick={onClickFilterBtn}>
+    <CakesSearchInputContainer>
+      <CakesFilterBtn onClick={onClickFilterBtn}>
         Filter
         <FilterBtnIcon>
           <GoTriangleDown />
         </FilterBtnIcon>
-      </FilterBtn>
-      <CakesPageSearchInput
+      </CakesFilterBtn>
+      <CakesSearchInput
         type="search"
         placeholder="Search"
         value={searchInput}
         onChange={onChangeSearchInput}
       />
-    </CakesPageSearchInputContainer>
+    </CakesSearchInputContainer>
+  )
+
+  const renderPriceFilter = () => (
+    <FilterByPriceAndTypeContainer>
+      <SortByPrice>Price:</SortByPrice>
+      <SortPriceContainer>
+        <FilterOptionsContainer>
+          <FilterOptions
+            type="radio"
+            value="ASC"
+            id="low-price"
+            name="price"
+            onClick={onChangePriceOrder}
+          />
+          <FilterLabel htmlFor="low-price">Low to High</FilterLabel>
+        </FilterOptionsContainer>
+        <FilterOptionsContainer>
+          <FilterOptions
+            type="radio"
+            value="DESC"
+            id="high-price"
+            name="price"
+            onClick={onChangePriceOrder}
+          />
+          <FilterLabel htmlFor="high-price">High to Low</FilterLabel>
+        </FilterOptionsContainer>
+      </SortPriceContainer>
+    </FilterByPriceAndTypeContainer>
+  )
+
+  const renderCakeTypeFilter = () => (
+    <FilterByPriceAndTypeContainer>
+      <SortByPrice>Cake Type:</SortByPrice>
+      <FilterByTypeContainer>
+        <FilterOptionsContainer>
+          <FilterOptions
+            type="checkbox"
+            value="cake"
+            id="type-cake"
+            onChange={onChangeCakeType}
+          />
+          <FilterLabel htmlFor="type-cake">Cake</FilterLabel>
+        </FilterOptionsContainer>
+        <FilterOptionsContainer>
+          <FilterOptions
+            type="checkbox"
+            value="cup cake"
+            id="type-cup-cake"
+            onChange={onChangeCakeType}
+          />
+          <FilterLabel htmlFor="type-cup-cake">Cup Cake</FilterLabel>
+        </FilterOptionsContainer>
+      </FilterByTypeContainer>
+    </FilterByPriceAndTypeContainer>
   )
 
   const renderFilterContainer = () => (
-    <SortContainer filter={isFilterBtnActive ? 'block' : 'none'}>
-      <SortByPriceAndTypeContainer>
-        <SortByPrice>Price:</SortByPrice>
-        <SortPriceContainer>
-          <SortOptionContainer>
-            <SortOption
-              type="radio"
-              value="ASC"
-              id="low-price"
-              name="price"
-              onClick={onChangePriceOrder}
-            />
-            <SortLabel htmlFor="low-price">Low to High</SortLabel>
-          </SortOptionContainer>
-          <SortOptionContainer>
-            <SortOption
-              type="radio"
-              value="DESC"
-              id="high-price"
-              name="price"
-              onClick={onChangePriceOrder}
-            />
-            <SortLabel htmlFor="high-price">High to Low</SortLabel>
-          </SortOptionContainer>
-        </SortPriceContainer>
-      </SortByPriceAndTypeContainer>
-      <SortByPriceAndTypeContainer>
-        <SortByPrice>Cake Type:</SortByPrice>
-        <SortTypeContainer>
-          <SortOptionContainer>
-            <SortOption
-              type="checkbox"
-              value="cake"
-              id="type-cake"
-              onChange={onChangeCakeType}
-            />
-            <SortLabel htmlFor="type-cake">Cake</SortLabel>
-          </SortOptionContainer>
-          <SortOptionContainer>
-            <SortOption
-              type="checkbox"
-              value="cup cake"
-              id="type-cup-cake"
-              onChange={onChangeCakeType}
-            />
-            <SortLabel htmlFor="type-cup-cake">Cup Cake</SortLabel>
-          </SortOptionContainer>
-        </SortTypeContainer>
-      </SortByPriceAndTypeContainer>
-    </SortContainer>
+    <FilterByContainer filter={isFilterBtnActive ? 'block' : 'none'}>
+      {renderPriceFilter()}
+      {renderCakeTypeFilter()}
+    </FilterByContainer>
   )
 
   const renderEmptyCakeListContainer = () => (
-    <CakePageEmptyResultContainer>
-      <CakePageEmptyResultImage
+    <CakesEmptyResultContainer>
+      <CakesEmptyResultImage
         src="https://img.freepik.com/free-vector/investigation-concept-illustration_114360-20311.jpg?t=st=1709368908~exp=1709372508~hmac=cc7a7c2c70e2ebc83260f365e98c1638800b30481ee43039e8b429e06ae745bb&w=740"
         alt="empty-result-image"
       />
-      <CakePageEmptyResultHeading>No Cakes Found</CakePageEmptyResultHeading>
-      <CakePageEmptyResultDescription>
+      <CakesEmptyResultHeading>No Cakes Found</CakesEmptyResultHeading>
+      <CakeEmptyResultDescription>
         We could not find any cakes. Try other filters.
-      </CakePageEmptyResultDescription>
-    </CakePageEmptyResultContainer>
+      </CakeEmptyResultDescription>
+    </CakesEmptyResultContainer>
   )
 
   const renderCakeListContainer = () => {
     if (cakeData.length !== 0) {
       return (
-        <CakesPageListContainer>
+        <CakesListContainer>
           {cakeData.map(eachItem => (
             <CakeList
               key={eachItem.id}
@@ -254,14 +265,14 @@ const Cakes = () => {
               onDecrementQty={onDecrementQty}
             />
           ))}
-        </CakesPageListContainer>
+        </CakesListContainer>
       )
     }
     return renderEmptyCakeListContainer()
   }
 
   const renderLoader = () => (
-    <CakesPageLoaderContainer>
+    <CakesLoaderContainer>
       <ThreeCircles
         visible
         height="50"
@@ -270,7 +281,7 @@ const Cakes = () => {
         radius="9"
         ariaLabel="three-dots-loading"
       />
-    </CakesPageLoaderContainer>
+    </CakesLoaderContainer>
   )
 
   const onClickRetryBtn = () => {
@@ -278,19 +289,17 @@ const Cakes = () => {
   }
 
   const renderFailureContainer = () => (
-    <CakesPageFailureContainerContainer>
-      <CakesPageFailureImage
+    <CakesFailureContainer>
+      <CakesFailureImage
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="cake-list-failure-image"
       />
-      <CakesPageFailureHeadingContainer>
-        Oops Something Went Wrong
-      </CakesPageFailureHeadingContainer>
-      <CakesPageFailureHeadingDescription>
+      <CakesFailureHeading>Oops Something Went Wrong</CakesFailureHeading>
+      <CakesFailureDescription>
         We are having some trouble processing your request. Please try again.
-      </CakesPageFailureHeadingDescription>
-      <CakesPageRetryImage onClick={onClickRetryBtn}>Retry</CakesPageRetryImage>
-    </CakesPageFailureContainerContainer>
+      </CakesFailureDescription>
+      <CakesRetryBtn onClick={onClickRetryBtn}>Retry</CakesRetryBtn>
+    </CakesFailureContainer>
   )
 
   const renderCakeListView = () => {
@@ -310,16 +319,16 @@ const Cakes = () => {
   return (
     <CakesPageContainer>
       <Header />
-      <CakesPageMainContainer>
+      <CakesContainer>
         {renderCakePageBannerContainer()}
-        <CakesPageResponsiveContainer>
+        <CakesResponsiveContainer>
           {renderSearchContainer()}
           {renderFilterContainer()}
           {renderCakeListView()}
           <FollowUs />
           <Footer />
-        </CakesPageResponsiveContainer>
-      </CakesPageMainContainer>
+        </CakesResponsiveContainer>
+      </CakesContainer>
     </CakesPageContainer>
   )
 }

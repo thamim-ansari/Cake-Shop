@@ -11,30 +11,51 @@ import Footer from '../Footer'
 
 import {
   ContactUsPageContainer,
-  ContactUsPageMainContainer,
-  ContactUsPageBannerBgContainer,
-  ContactUsPageBannerHeading,
-  ContactUsPageResponsiveContainer,
-  ContactUsPageLocationImage,
-  ContactUsPageAddressAndForm,
-  ContactUsPageForm,
-  ContactUsPageFormHeading,
-  ContactUsPageFormMessageContainer,
-  ContactUsPageFormMessageInput,
-  ContactUsPageFormLabel,
-  ContactUsPageFormNameContainer,
-  ContactUsPageFormNameInput,
-  ContactUsPageFormEmailContainer,
-  ContactUsPageFormEmailInput,
-  ContactUsPageFormSubjectContainer,
-  ContactUsPageFormSubjectInput,
-  ContactUsPageFormSubmitBtn,
-  ContactUsPageContactOptionsContainer,
-  ContactUsPageContactOptionsIconAndInfoContainer,
-  ContactUsPageContactOptionsInfoContainer,
-  ContactUsPageContactOptionsInfoHeading,
-  ContactUsPageContactOptionsInfoDescription,
+  ContactUsContainer,
+  ContactUsBannerBgContainer,
+  ContactUsBannerHeading,
+  ContactUsResponsiveContainer,
+  ContactUsLocationImage,
+  ContactUsAddressAndForm,
+  ContactUsForm,
+  ContactUsFormHeading,
+  ContactUsFormMessageContainer,
+  ContactUsFormMessageInput,
+  ContactUsFormLabel,
+  ContactUsFormNameContainer,
+  ContactUsFormNameInput,
+  ContactUsFormEmailContainer,
+  ContactUsFormEmailInput,
+  ContactUsFormSubjectContainer,
+  ContactUsFormSubjectInput,
+  ContactUsFormSubmitBtn,
+  ContactUsContactOptionsContainer,
+  ContactUsContactOptionsIconAndInfoContainer,
+  ContactUsContactOptionsInfoContainer,
+  ContactUsContactOptionsInfoHeading,
+  ContactUsContactOptionsInfoDescription,
 } from './styledComponents'
+
+const contactOptionList = [
+  {
+    id: 1,
+    icon: <AiOutlineHome size={30} color="#ffffff" />,
+    topInfo: 'Buttonwood, California.',
+    bottomInfo: 'Rosemead, CA 91770',
+  },
+  {
+    id: 2,
+    icon: <TiDeviceTablet size={30} color="#ffffff" />,
+    topInfo: '+1 253 565 2365',
+    bottomInfo: 'Mon to Fri 9am to 6pm',
+  },
+  {
+    id: 3,
+    icon: <BsEnvelope size={30} color="#ffffff" />,
+    topInfo: 'support@colorlib.com',
+    bottomInfo: 'Send us your query anytime!',
+  },
+]
 
 const ContactUs = () => {
   const [message, setMessage] = useState('')
@@ -96,12 +117,14 @@ const ContactUs = () => {
       setEmailErrMsgVisibility(false)
     }
   }
+
   const onBlurEmailError = () => {
     setEmailErrMsgVisibility(true)
     if (email.includes('@') && email.includes('.')) {
       setEmailErrMsgVisibility(false)
     }
   }
+
   const addSubjectInput = event => {
     setSubject(event.target.value)
     if (subject.length > 4) {
@@ -110,6 +133,7 @@ const ContactUs = () => {
       setSubjectErrMsgVisibility(true)
     }
   }
+
   const onBlurSubjectError = () => {
     setSubjectErrMsgVisibility(true)
     if (subject.length < 4) {
@@ -119,13 +143,7 @@ const ContactUs = () => {
     }
   }
 
-  const renderContactUsBannerContainer = () => (
-    <ContactUsPageBannerBgContainer>
-      <ContactUsPageBannerHeading>Contact Us</ContactUsPageBannerHeading>
-    </ContactUsPageBannerBgContainer>
-  )
-
-  const onSubmitForm = event => {
+  const onSubmitGetInTouchForm = event => {
     event.preventDefault()
     const formNotNullValues =
       message !== '' && nameInput !== '' && email !== '' && subject !== ''
@@ -142,140 +160,140 @@ const ContactUs = () => {
       notify()
     }
   }
+
+  const renderContactUsBannerContainer = () => (
+    <ContactUsBannerBgContainer>
+      <ContactUsBannerHeading>Contact Us</ContactUsBannerHeading>
+    </ContactUsBannerBgContainer>
+  )
+
+  const renderMessageInputContainer = () => (
+    <ContactUsFormMessageContainer>
+      <ContactUsFormMessageInput
+        cols="30"
+        rows="9"
+        placeholder="Enter Message"
+        onChange={addMessageText}
+        value={message}
+        onBlur={onBlurMessageError}
+      />
+      {isMessageVisible && (
+        <ContactUsFormLabel htmlFor="message">
+          {message.length === 0
+            ? 'um...yea, you have to write something to send this form.'
+            : 'thats all? really?'}
+        </ContactUsFormLabel>
+      )}
+    </ContactUsFormMessageContainer>
+  )
+
+  const renderNameInputContainer = () => (
+    <ContactUsFormNameContainer>
+      <ContactUsFormNameInput
+        type="text"
+        placeholder="Enter your name"
+        id="name"
+        value={nameInput}
+        onChange={addNameInput}
+        onBlur={onBlurNameError}
+      />
+      {isNameErrMsgVisible && (
+        <ContactUsFormLabel htmlFor="name">
+          {nameInput.length === 0
+            ? "come on, you have a name, don't you?"
+            : 'your name must consist of at least 3 characters'}
+        </ContactUsFormLabel>
+      )}
+    </ContactUsFormNameContainer>
+  )
+
+  const renderEmailInputContainer = () => (
+    <ContactUsFormEmailContainer>
+      <ContactUsFormEmailInput
+        type="email"
+        placeholder="Enter email address"
+        id="email"
+        value={email}
+        onChange={addEmailInput}
+        onBlur={onBlurEmailError}
+      />
+      {isEmailErrMsgVisible && (
+        <ContactUsFormLabel htmlFor="email">
+          {email.length === 0
+            ? 'no email, no message'
+            : 'Please enter a valid email address.'}
+        </ContactUsFormLabel>
+      )}
+    </ContactUsFormEmailContainer>
+  )
+
+  const renderSubjectInputContainer = () => (
+    <ContactUsFormSubjectContainer>
+      <ContactUsFormSubjectInput
+        type="text"
+        placeholder="Enter Subject"
+        id="subject"
+        value={subject}
+        onChange={addSubjectInput}
+        onBlur={onBlurSubjectError}
+      />
+      {isSubjectErrMsgVisible && (
+        <ContactUsFormLabel htmlFor="subject">
+          {subject.length === 0
+            ? "come on, you have a subject, don't you?"
+            : 'your subject must consist of at least 4 characters'}
+        </ContactUsFormLabel>
+      )}
+    </ContactUsFormSubjectContainer>
+  )
+
   const renderFormContainer = () => (
-    <ContactUsPageForm onSubmit={onSubmitForm}>
-      <ContactUsPageFormMessageContainer>
-        <ContactUsPageFormMessageInput
-          cols="30"
-          rows="9"
-          placeholder="Enter Message"
-          onChange={addMessageText}
-          value={message}
-          onBlur={onBlurMessageError}
-        />
-        {isMessageVisible && (
-          <ContactUsPageFormLabel htmlFor="message">
-            {message.length === 0
-              ? 'um...yea, you have to write something to send this form.'
-              : 'thats all? really?'}
-          </ContactUsPageFormLabel>
-        )}
-      </ContactUsPageFormMessageContainer>
-      <ContactUsPageFormNameContainer>
-        <ContactUsPageFormNameInput
-          type="text"
-          placeholder="Enter your name"
-          id="name"
-          value={nameInput}
-          onChange={addNameInput}
-          onBlur={onBlurNameError}
-        />
-        {isNameErrMsgVisible && (
-          <ContactUsPageFormLabel htmlFor="name">
-            {nameInput.length === 0
-              ? "come on, you have a name, don't you?"
-              : 'your name must consist of at least 3 characters'}
-          </ContactUsPageFormLabel>
-        )}
-      </ContactUsPageFormNameContainer>
-      <ContactUsPageFormEmailContainer>
-        <ContactUsPageFormEmailInput
-          type="email"
-          placeholder="Enter email address"
-          id="email"
-          value={email}
-          onChange={addEmailInput}
-          onBlur={onBlurEmailError}
-        />
-        {isEmailErrMsgVisible && (
-          <ContactUsPageFormLabel htmlFor="email">
-            {email.length === 0
-              ? 'no email, no message'
-              : 'Please enter a valid email address.'}
-          </ContactUsPageFormLabel>
-        )}
-      </ContactUsPageFormEmailContainer>
-      <ContactUsPageFormSubjectContainer>
-        <ContactUsPageFormSubjectInput
-          type="text"
-          placeholder="Enter Subject"
-          id="subject"
-          value={subject}
-          onChange={addSubjectInput}
-          onBlur={onBlurSubjectError}
-        />
-        {isSubjectErrMsgVisible && (
-          <ContactUsPageFormLabel htmlFor="subject">
-            {subject.length === 0
-              ? "come on, you have a subject, don't you?"
-              : 'your subject must consist of at least 4 characters'}
-          </ContactUsPageFormLabel>
-        )}
-      </ContactUsPageFormSubjectContainer>
-      <ContactUsPageFormSubmitBtn type="submit">
-        SEND
-      </ContactUsPageFormSubmitBtn>
-    </ContactUsPageForm>
+    <ContactUsForm onSubmit={onSubmitGetInTouchForm}>
+      {renderMessageInputContainer()}
+      {renderNameInputContainer()}
+      {renderEmailInputContainer()}
+      {renderSubjectInputContainer()}
+      <ContactUsFormSubmitBtn type="submit">SEND</ContactUsFormSubmitBtn>
+    </ContactUsForm>
   )
 
   const renderContactOptionsContainer = () => (
-    <ContactUsPageContactOptionsContainer>
-      <ContactUsPageContactOptionsIconAndInfoContainer>
-        <AiOutlineHome size={30} color="#ffffff" />
-        <ContactUsPageContactOptionsInfoContainer>
-          <ContactUsPageContactOptionsInfoHeading>
-            Buttonwood, California.
-          </ContactUsPageContactOptionsInfoHeading>
-          <ContactUsPageContactOptionsInfoDescription>
-            Rosemead, CA 91770
-          </ContactUsPageContactOptionsInfoDescription>
-        </ContactUsPageContactOptionsInfoContainer>
-      </ContactUsPageContactOptionsIconAndInfoContainer>
-      <ContactUsPageContactOptionsIconAndInfoContainer>
-        <TiDeviceTablet size={30} color="#ffffff" />
-        <ContactUsPageContactOptionsInfoContainer>
-          <ContactUsPageContactOptionsInfoHeading>
-            +1 253 565 2365
-          </ContactUsPageContactOptionsInfoHeading>
-          <ContactUsPageContactOptionsInfoDescription>
-            Mon to Fri 9am to 6pm
-          </ContactUsPageContactOptionsInfoDescription>
-        </ContactUsPageContactOptionsInfoContainer>
-      </ContactUsPageContactOptionsIconAndInfoContainer>
-      <ContactUsPageContactOptionsIconAndInfoContainer>
-        <BsEnvelope size={30} color="#ffffff" />
-        <ContactUsPageContactOptionsInfoContainer>
-          <ContactUsPageContactOptionsInfoHeading>
-            support@colorlib.com
-          </ContactUsPageContactOptionsInfoHeading>
-          <ContactUsPageContactOptionsInfoDescription>
-            Send us your query anytime!
-          </ContactUsPageContactOptionsInfoDescription>
-        </ContactUsPageContactOptionsInfoContainer>
-      </ContactUsPageContactOptionsIconAndInfoContainer>
-    </ContactUsPageContactOptionsContainer>
+    <ContactUsContactOptionsContainer>
+      {contactOptionList.map(eachItem => (
+        <ContactUsContactOptionsIconAndInfoContainer key={eachItem.id}>
+          {eachItem.icon}
+          <ContactUsContactOptionsInfoContainer>
+            <ContactUsContactOptionsInfoHeading>
+              {eachItem.topInfo}
+            </ContactUsContactOptionsInfoHeading>
+            <ContactUsContactOptionsInfoDescription>
+              {eachItem.bottomInfo}
+            </ContactUsContactOptionsInfoDescription>
+          </ContactUsContactOptionsInfoContainer>
+        </ContactUsContactOptionsIconAndInfoContainer>
+      ))}
+    </ContactUsContactOptionsContainer>
   )
+
   return (
     <ContactUsPageContainer>
       <Header />
-      <ContactUsPageMainContainer>
+      <ContactUsContainer>
         {renderContactUsBannerContainer()}
-        <ContactUsPageResponsiveContainer>
-          <ContactUsPageLocationImage
+        <ContactUsResponsiveContainer>
+          <ContactUsLocationImage
             src="https://streetsmn.s3.us-east-2.amazonaws.com/wp-content/uploads/2013/10/Screen-shot-2013-10-27-at-10.51.49-PM.png"
             alt="google-map-location-img"
           />
-          <ContactUsPageFormHeading id="message">
-            Get in Touch
-          </ContactUsPageFormHeading>
-          <ContactUsPageAddressAndForm>
+          <ContactUsFormHeading>Get in Touch</ContactUsFormHeading>
+          <ContactUsAddressAndForm>
             {renderFormContainer()}
             {renderContactOptionsContainer()}
-          </ContactUsPageAddressAndForm>
+          </ContactUsAddressAndForm>
           <Footer />
           <Toaster />
-        </ContactUsPageResponsiveContainer>
-      </ContactUsPageMainContainer>
+        </ContactUsResponsiveContainer>
+      </ContactUsContainer>
     </ContactUsPageContainer>
   )
 }

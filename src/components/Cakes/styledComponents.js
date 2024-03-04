@@ -4,12 +4,12 @@ export const CakesPageContainer = styled.div`
   background-color: #0a0a0a;
   min-height: 100vh;
 `
-export const CakesPageMainContainer = styled.div`
+export const CakesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
-export const CakesPageBannerBgContainer = styled.div`
+export const CakesBannerBgContainer = styled.div`
   background-image: url('https://mrwallpaper.com/images/hd/black-forest-cupcake-2xvk9qlah3xhf476.jpg');
   background-size: cover;
   background-position: center;
@@ -22,7 +22,7 @@ export const CakesPageBannerBgContainer = styled.div`
     height: 300px;
   }
 `
-export const CakesPageBannerHeading = styled.h1`
+export const CakesBannerHeading = styled.h1`
   color: #fff;
   font-family: 'Poiret One', 'sans serif';
   font-size: 40px;
@@ -32,10 +32,10 @@ export const CakesPageBannerHeading = styled.h1`
     font-size: 70px;
   }
 `
-export const CakesPageResponsiveContainer = styled.div`
+export const CakesResponsiveContainer = styled.div`
   width: 90%;
 `
-export const CakesPageSearchInputContainer = styled.div`
+export const CakesSearchInputContainer = styled.div`
   display: flex;
   margin: 15px 0px 15px 0px;
   @media screen and (min-width: 768px) {
@@ -47,7 +47,7 @@ export const CakesPageSearchInputContainer = styled.div`
     padding-right: 25px;
   }
 `
-export const CakesPageSearchInput = styled.input`
+export const CakesSearchInput = styled.input`
   width: 100%;
   color: #fff;
   border: 1px solid #fff;
@@ -61,7 +61,7 @@ export const CakesPageSearchInput = styled.input`
     width: 35%;
   }
 `
-export const FilterBtn = styled.button`
+export const CakesFilterBtn = styled.button`
   color: #e5bf4a;
   background-color: transparent;
   font-family: 'Jost', 'sans serif';
@@ -78,7 +78,7 @@ export const FilterBtnIcon = styled.span`
   justify-content: center;
   align-items: center;
 `
-export const SortContainer = styled.div`
+export const FilterByContainer = styled.div`
   display: ${props => props.filter}!important;
   background-color: #0a0a0a;
   box-shadow: 0px 0px 4px #ffffff;
@@ -87,7 +87,7 @@ export const SortContainer = styled.div`
   flex-direction: column;
   position: absolute;
 `
-export const SortByPriceAndTypeContainer = styled.div`
+export const FilterByPriceAndTypeContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -102,36 +102,36 @@ export const SortByPrice = styled.p`
 export const SortPriceContainer = styled.div`
   margin-left: 40px;
 `
-export const SortTypeContainer = styled.div`
+export const FilterByTypeContainer = styled.div`
   margin-left: 5px;
 `
-export const SortOptionContainer = styled.div`
+export const FilterOptionsContainer = styled.div`
   display: flex;
 `
-export const SortOption = styled.input`
+export const FilterOptions = styled.input`
   font-family: 'Jost', 'sans serif';
   accent-color: #e5bf4a;
 `
-export const SortLabel = styled.label`
+export const FilterLabel = styled.label`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-weight: 300;
 `
-export const CakesPageListContainer = styled.ul`
+export const CakesListContainer = styled.ul`
   padding-left: 0px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
   }
 `
-export const CakesPageLoaderContainer = styled.div`
+export const CakesLoaderContainer = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `
-export const CakesPageFailureContainerContainer = styled.div`
+export const CakesFailureContainer = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
@@ -139,7 +139,7 @@ export const CakesPageFailureContainerContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const CakesPageFailureHeadingContainer = styled.p`
+export const CakesFailureHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
   font-size: 24px;
@@ -151,7 +151,7 @@ export const CakesPageFailureHeadingContainer = styled.p`
     margin: 40px 0px 20px 0px;
   }
 `
-export const CakesPageFailureHeadingDescription = styled.p`
+export const CakesFailureDescription = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 16px;
@@ -159,13 +159,13 @@ export const CakesPageFailureHeadingDescription = styled.p`
   text-align: center;
   margin: 0px;
 `
-export const CakesPageFailureImage = styled.img`
+export const CakesFailureImage = styled.img`
   width: 300px;
   @media screen and (min-width: 768px) {
     width: 400px;
   }
 `
-export const CakesPageRetryImage = styled.button`
+export const CakesRetryBtn = styled.button`
   color: #fff;
   background-color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
@@ -179,7 +179,7 @@ export const CakesPageRetryImage = styled.button`
     background-color: transparent;
   }
 `
-export const CakePageEmptyResultContainer = styled.div`
+export const CakesEmptyResultContainer = styled.div`
   width: 100%;
   height: 80vh;
   display: flex;
@@ -187,10 +187,10 @@ export const CakePageEmptyResultContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const CakePageEmptyResultImage = styled.img`
+export const CakesEmptyResultImage = styled.img`
   width: 300px;
 `
-export const CakePageEmptyResultHeading = styled.p`
+export const CakesEmptyResultHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Jost', 'sans serif';
   font-size: 24px;
@@ -202,7 +202,7 @@ export const CakePageEmptyResultHeading = styled.p`
     margin: 20px 0px;
   }
 `
-export const CakePageEmptyResultDescription = styled.p`
+export const CakeEmptyResultDescription = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 16px;

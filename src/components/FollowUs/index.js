@@ -11,6 +11,29 @@ import {
 } from './styledComponents'
 import '../Header/index.css'
 
+const followUsImageList = [
+  {
+    id: 1,
+    imageUrl:
+      'https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra1.jpg',
+  },
+  {
+    id: 2,
+    imageUrl:
+      'https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra2.jpg',
+  },
+  {
+    id: 3,
+    imageUrl:
+      'https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra3.jpg',
+  },
+  {
+    id: 4,
+    imageUrl:
+      'https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra4.jpg',
+  },
+]
+
 const FollowUs = () => (
   <FollowUsContainer>
     <FollowUsHeadingAndBtnContainer>
@@ -30,22 +53,12 @@ const FollowUs = () => (
       </a>
     </FollowUsHeadingAndBtnContainer>
     <FollowUsImageContainer>
-      <FollowUsImage
-        src="https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra1.jpg"
-        alt="follow-us-img-1"
-      />
-      <FollowUsImage
-        src="https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra2.jpg"
-        alt="follow-us-img-2"
-      />
-      <FollowUsImage
-        src="https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra3.jpg"
-        alt="follow-us-img-3"
-      />
-      <FollowUsImage
-        src="https://preview.colorlib.com/theme/cakeshop/assets/img/gallery/instra4.jpg"
-        alt="follow-us-img-4"
-      />
+      {followUsImageList.map(eachImage => (
+        <FollowUsImage
+          src={eachImage.imageUrl}
+          alt={`follow-us-img-${eachImage.id}`}
+        />
+      ))}
     </FollowUsImageContainer>
   </FollowUsContainer>
 )

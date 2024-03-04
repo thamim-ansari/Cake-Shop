@@ -6,16 +6,12 @@ export const FooterContainer = styled.div`
   border-bottom: 1px solid #ffffff33;
   display: flex;
   flex-wrap: wrap;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding: 20px 0px;
+  margin: 20px 0px;
   @media screen and (min-width: 768px) {
     justify-content: space-between;
-    padding-top: 45px;
-    padding-bottom: 30px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    padding: 45px 0px 30px;
+    margin: 40px 0px;
   }
 `
 export const FooterDescAndSocialIcons = styled.div`
@@ -43,8 +39,7 @@ export const FooterSocialIconsBtn = styled.button`
   font-family: 'Jost', sans-serif;
   font-size: 16px;
   padding: 14px 36px;
-  margin-right: 4px;
-  margin-bottom: 10px;
+  margin: 0px 4px 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,15 +66,13 @@ export const FooterLocationHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Poiret One', 'sans serif';
   font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0px 10px 0px;
 `
 export const FooterLocationDescription = styled.p`
   color: #ffffff;
   font-family: 'Jost', 'sans serif';
   font-size: 16px;
-  margin: 0px;
-  margin-bottom: 15px;
+  margin: 0px 0px 15px 0px;
 `
 export const FooterContactContainer = styled.div`
   display: flex;
@@ -92,21 +85,18 @@ export const FooterContactHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Poiret One', 'sans serif';
   font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin: 20px 0px 10px;
 `
 export const FooterContactNumber = styled.p`
   color: #ffffff;
   font-family: 'Jost', 'sans serif';
   font-weight: 300;
   font-size: 16px;
-  margin: 0px;
-  margin-bottom: 8px;
+  margin: 0px 0px 8px 0px;
 `
 export const FooterContactEmail = styled.p`
   color: #ffffff;
   font-family: 'Jost', 'sans serif';
   font-size: 16px;
-  margin: 0px;
-  margin-bottom: 15px;
+  margin: 0px 0px 15px 0px;
 `

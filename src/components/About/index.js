@@ -9,9 +9,9 @@ import Footer from '../Footer'
 
 import {
   AboutPageContainer,
-  AboutPageMainContainer,
-  AboutPageBannerBgContainer,
-  AboutPageBannerHeading,
+  AboutContainer,
+  AboutBannerBgContainer,
+  AboutBannerHeading,
   AboutResponsiveContainer,
   AboutOurContainer,
   AboutOurContentContainer,
@@ -31,9 +31,9 @@ import './index.css'
 
 const About = () => {
   const renderAboutPageBannerContainer = () => (
-    <AboutPageBannerBgContainer>
-      <AboutPageBannerHeading>About Us</AboutPageBannerHeading>
-    </AboutPageBannerBgContainer>
+    <AboutBannerBgContainer>
+      <AboutBannerHeading>About Us</AboutBannerHeading>
+    </AboutBannerBgContainer>
   )
 
   const renderAboutOurStoryContainer = () => (
@@ -141,7 +141,7 @@ const About = () => {
   return (
     <AboutPageContainer>
       <Header />
-      <AboutPageMainContainer>
+      <AboutContainer>
         {renderAboutPageBannerContainer()}
         <AboutResponsiveContainer>
           {renderAboutOurStoryContainer()}
@@ -150,7 +150,7 @@ const About = () => {
           <FollowUs />
           <Footer />
         </AboutResponsiveContainer>
-      </AboutPageMainContainer>
+      </AboutContainer>
     </AboutPageContainer>
   )
 }

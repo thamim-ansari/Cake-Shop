@@ -7,27 +7,27 @@ export const NotFoundPageContainer = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const NotFoundPageMainContainer = styled.div`
+export const NotFoundContainer = styled.div`
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
-export const NotFoundPageImage = styled.img`
+export const NotFoundImage = styled.img`
   width: 100%;
   @media screen and (min-width: 768px) {
     width: 400px;
   }
 `
-export const NotFoundPageHeading = styled.p`
+export const NotFoundHeading = styled.p`
   color: #e5bf4a;
   font-family: 'Poiret One', 'sans serif';
   font-size: 40px;
   font-weight: 600;
   margin: 10px 0px;
 `
-export const NotFoundPageDescription = styled.p`
+export const NotFoundDescription = styled.p`
   color: #fff;
   font-family: 'Jost', 'sans serif';
   font-size: 16px;
