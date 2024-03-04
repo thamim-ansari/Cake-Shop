@@ -220,3 +220,22 @@ http://localhost:3001/cakes/?search_q=&cake_type=cake&order_by=price&order=Asc
 - Carousel (react-slick)
 - CSS library (styled-components)
 - Toast notification (react-hot-toast)
+
+### Demo Images:
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/95e524fc-bd30-4b97-9e93-e8d105157021)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/ef41cbdc-4f18-4b8e-aefe-1097a237a63d)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/a4319cc1-233d-4c4b-85b9-824a3968b066)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/8d523318-1f45-4720-942d-eddcf22e2044)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/7f643be9-550c-4121-a818-d5255108a72b)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/70412c85-94ed-4b09-b08b-f7f105bd90da)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/64e60bfa-1d30-46ab-aebc-b56d39612f29)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/de5c7e3b-6510-4414-a63c-d75d24d9894b)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/39c261cf-2f3a-4fed-b769-d3bdf72730ac)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/beea6abb-13bc-4ebd-a50a-93ab1bd881c7)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/d5c9fee3-6410-459a-be09-effa22c464fe)
+![image](https://github.com/thamim-ansari/Cake-Shop/assets/144004837/ed2b1abf-db78-44db-b279-5bb14eaa0b11)
+
+
+
+
+
