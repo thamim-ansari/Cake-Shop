@@ -77,8 +77,7 @@ const Cakes = () => {
     setCakeDataStatus({
       status: cakeListApiStatusConstants.in_progress,
     })
-    console.log(cakeTypeInput)
-    const cakeApiUrl = `http://localhost:3001/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
+    const cakeApiUrl = `https://cake-shop-backend-wzlx.onrender.com/cakes/?search_q=${searchInput}&cake_type=${cakeTypeInput.join()}&order_by=${
       priceAndOrderInput.orderBy
     }&order=${priceAndOrderInput.order}`
     const cakeApiResponse = await fetch(cakeApiUrl)
