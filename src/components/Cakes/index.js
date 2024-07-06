@@ -33,6 +33,7 @@ import {
   FilterOptionsContainer,
   FilterOptions,
   FilterLabel,
+  ClearFilterBtn,
   CakesEmptyResultContainer,
   CakesEmptyResultImage,
   CakesEmptyResultHeading,
@@ -143,6 +144,14 @@ const Cakes = () => {
     })
   }
 
+  const onClickClearFilter = () => {
+    setPriceOrderInput({
+      orderBy: 'id',
+      order: '',
+    })
+    setCakTypeInput([])
+  }
+
   const onChangeCakeType = event => {
     const type = event.target.value
     const notInList = cakeTypeInput.filter(eachItem => eachItem === type)
@@ -187,6 +196,7 @@ const Cakes = () => {
             value="ASC"
             id="low-price"
             name="price"
+            checked={priceAndOrderInput.order === 'ASC'}
             onClick={onChangePriceOrder}
           />
           <FilterLabel htmlFor="low-price">Low to High</FilterLabel>
@@ -197,6 +207,7 @@ const Cakes = () => {
             value="DESC"
             id="high-price"
             name="price"
+            checked={priceAndOrderInput.order === 'DESC'}
             onClick={onChangePriceOrder}
           />
           <FilterLabel htmlFor="high-price">High to Low</FilterLabel>
@@ -214,6 +225,7 @@ const Cakes = () => {
             type="checkbox"
             value="cake"
             id="type-cake"
+            checked={cakeTypeInput.includes('cake')}
             onChange={onChangeCakeType}
           />
           <FilterLabel htmlFor="type-cake">Cake</FilterLabel>
@@ -223,6 +235,7 @@ const Cakes = () => {
             type="checkbox"
             value="cup cake"
             id="type-cup-cake"
+            checked={cakeTypeInput.includes('cup cake')}
             onChange={onChangeCakeType}
           />
           <FilterLabel htmlFor="type-cup-cake">Cup Cake</FilterLabel>
@@ -235,6 +248,9 @@ const Cakes = () => {
     <FilterByContainer filter={isFilterBtnActive ? 'block' : 'none'}>
       {renderPriceFilter()}
       {renderCakeTypeFilter()}
+      <ClearFilterBtn type="button" onClick={onClickClearFilter}>
+        Clear All
+      </ClearFilterBtn>
     </FilterByContainer>
   )
 

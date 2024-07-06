@@ -117,6 +117,15 @@ export const FilterLabel = styled.label`
   font-family: 'Jost', 'sans serif';
   font-weight: 300;
 `
+export const ClearFilterBtn = styled.button`
+  color: #ff0000;
+  font-size: 14px;
+  font-family: 'Jost', 'sans serif';
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`
 export const CakesListContainer = styled.ul`
   padding-left: 0px;
   @media screen and (min-width: 768px) {
