@@ -74,7 +74,7 @@ const CakeList = props => {
         onClick={onClickDecrementBtn}
         disabled={isBtnEnabled}
       >
-        <FaMinus color="#e5bf4a" />
+        <FaMinus color="#e5bf4a" aria-label="plus" />
       </CakeQtyIncreaseAndDecreaseBtn>
       <CakeQty>{qty}</CakeQty>
       <CakeQtyIncreaseAndDecreaseBtn
@@ -82,7 +82,7 @@ const CakeList = props => {
         onClick={onClickIncrementBtn}
         disabled={isBtnEnabled}
       >
-        <FaPlus color="#e5bf4a" />
+        <FaPlus color="#e5bf4a" aria-label="minus" />
       </CakeQtyIncreaseAndDecreaseBtn>
     </CakeQtyIncreaseAndDecreaseContainer>
   )

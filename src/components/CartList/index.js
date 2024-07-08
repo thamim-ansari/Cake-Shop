@@ -41,11 +41,11 @@ const CartList = props => {
         <CartItemName>{name}</CartItemName>
         <CakeQtyIncreaseAndDecreaseContainer>
           <CakeQtyIncreaseAndDecreaseBtn onClick={onClickDecreaseBtn}>
-            <FaMinus color="#e5bf4a" />
+            <FaMinus color="#e5bf4a" aria-label="minus" />
           </CakeQtyIncreaseAndDecreaseBtn>
           <CakeQty>{qty}</CakeQty>
           <CakeQtyIncreaseAndDecreaseBtn onClick={onClickIncreaseBtn}>
-            <FaPlus color="#e5bf4a" />
+            <FaPlus color="#e5bf4a" aria-label="plus" />
           </CakeQtyIncreaseAndDecreaseBtn>
         </CakeQtyIncreaseAndDecreaseContainer>
         <CartItemPrice>{`₹ ${price * qty}`}</CartItemPrice>

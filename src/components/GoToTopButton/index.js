@@ -32,7 +32,7 @@ const GoToTopButton = () => {
       onClick={scrollToTop}
       type="button"
     >
-      <IoIosArrowUp size={16} />
+      <IoIosArrowUp size={16} aria-label="go to top icon" />
     </GoToTopBtn>
   )
 }
