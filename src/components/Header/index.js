@@ -33,17 +33,29 @@ const Header = () => {
     <SocialIconsContainer>
       <SocialIconsList>
         <a href="https://www.facebook.com/" rel="noreferrer" target="_blank">
-          <FaFacebook size={20} className="nav-bar-icons" />
+          <FaFacebook
+            size={20}
+            className="nav-bar-icons"
+            aria-label="facebook icon"
+          />
         </a>
       </SocialIconsList>
       <SocialIconsList>
         <a href="https://www.instagram.com/" rel="noreferrer" target="_blank">
-          <FaInstagram size={20} className="nav-bar-icons" />
+          <FaInstagram
+            size={20}
+            className="nav-bar-icons"
+            aria-label="instagram icon"
+          />
         </a>
       </SocialIconsList>
       <SocialIconsList>
         <a href="https://twitter.com" rel="noreferrer" target="_blank">
-          <FaTwitter size={20} className="nav-bar-icons" />
+          <FaTwitter
+            size={20}
+            className="nav-bar-icons"
+            aria-label="twitter icon"
+          />
         </a>
       </SocialIconsList>
     </SocialIconsContainer>
